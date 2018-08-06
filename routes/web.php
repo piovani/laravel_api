@@ -15,4 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('person', 'PersonController');
+Route::resource('people', 'PersonController');
