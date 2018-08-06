@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\People;
+use http\Env\Response;
 use Illuminate\Http\Request;
 
 class PeopleController extends Controller
@@ -14,7 +15,10 @@ class PeopleController extends Controller
      */
     public function index()
     {
-        //
+        $people = People::all();
+        return Response()->json([
+            'people' => $people
+        ]);
     }
 
     /**
