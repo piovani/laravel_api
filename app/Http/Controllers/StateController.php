@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Person;
-use http\Env\Response;
+use App\State;
 use Illuminate\Http\Request;
 
-class PersonController extends Controller
+class StateController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +14,7 @@ class PersonController extends Controller
      */
     public function index()
     {
-        $persons = Person::all();
-        return Response()->json([
-            'persons' => $persons
-        ]);
+        //
     }
 
     /**
@@ -45,10 +41,10 @@ class PersonController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Person  $person
+     * @param  \App\State  $state
      * @return \Illuminate\Http\Response
      */
-    public function show(Person $person)
+    public function show(State $state)
     {
         //
     }
@@ -56,10 +52,10 @@ class PersonController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Person  $person
+     * @param  \App\State  $state
      * @return \Illuminate\Http\Response
      */
-    public function edit(Person $person)
+    public function edit(State $state)
     {
         //
     }
@@ -68,10 +64,10 @@ class PersonController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Person  $person
+     * @param  \App\State  $state
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Person $person)
+    public function update(Request $request, State $state)
     {
         //
     }
@@ -79,10 +75,10 @@ class PersonController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Person  $person
+     * @param  \App\State  $state
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Person $person)
+    public function destroy(State $state)
     {
         //
     }
