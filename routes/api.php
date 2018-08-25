@@ -22,6 +22,14 @@ Route::prefix('state')->group(function () {
     Route::get('/{id}', 'StateController@show');
 });
 
+Route::prefix('city')->group(function () {
+    Route::get('/', 'PeopleController@index');
+    Route::get('/{id}', 'PeopleController@show');
+    Route::post('/', 'PeopleController@store');
+    Route::put('/', 'PeopleController@update');
+    Route::delete('/{id}', 'PeopleController@destroy');
+});
+
 Route::prefix('people')->group(function () {
     Route::get('/', 'PeopleController@index');
     Route::get('/{id}', 'PeopleController@show');
