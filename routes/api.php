@@ -37,5 +37,3 @@ Route::prefix('people')->group(function () {
     Route::put('/', 'PeopleController@update');
     Route::delete('/{id}', 'PeopleController@destroy');
 });
-
-//Route::resource('people', 'PeopleController');

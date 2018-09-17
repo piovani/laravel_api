@@ -8,8 +8,12 @@ use Illuminate\Http\Request;
 
 class StateController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        //PAGINAÇÃO DEVE SER FEITA UTILIZANDO AS TECNICAS DO LARAVEL
+//        $pagina = isset($request->pag) ? $request->pag : 1;
+//        $limit = isset($request->limit) ? $request->limit : 20;
+
         $states = State::all();
         return Response()->json([
             "states" => $states
