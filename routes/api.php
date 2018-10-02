@@ -17,10 +17,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::prefix('state')->group(function () {
-    Route::get('/', 'StateController@index');
-    Route::get('/{id}', 'StateController@show');
-});
+Route::resource('state', 'StateController')->only('index', 'show');
+//
+//Route::prefix('state')->group(function () {
+//    Route::get('/', 'StateController@index');
+//    Route::get('/{id}', 'StateController@show');
+//});
+
 
 Route::prefix('city')->group(function () {
     Route::get('/', 'PeopleController@index');

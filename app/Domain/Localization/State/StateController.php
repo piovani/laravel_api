@@ -10,14 +10,11 @@ class StateController extends Controller
 {
     public function index(Request $request)
     {
-        //PAGINAÇÃO DEVE SER FEITA UTILIZANDO AS TECNICAS DO LARAVEL
-//        $pagina = isset($request->pag) ? $request->pag : 1;
-//        $limit = isset($request->limit) ? $request->limit : 20;
+        $data = State::filter()
+            ->with('parent')
+            ->paginate($request->get('rowsPerPage') ?: 20);
 
-        $states = State::all();
-        return Response()->json([
-            "states" => $states
-        ]);
+        return response($data);
     }
 
     public function show(String $id)
