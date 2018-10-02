@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\State;
-use http\Env\Response;
 use Illuminate\Http\Request;
 
 class StateController extends Controller
 {
     public function index(Request $request)
     {
+        $data = State::all();
+
+        return response($data);
+
         $data = State::filter()
             ->with('parent')
             ->paginate($request->get('rowsPerPage') ?: 20);
