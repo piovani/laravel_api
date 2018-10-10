@@ -1,40 +1,34 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Domain\Localization\State;
 
-use App\State;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class StateController extends Controller
 {
     public function index(Request $request)
     {
-        $data = State::all();
+        $states = State::all();
 
-        return response($data);
-
-        $data = State::filter()
-            ->with('parent')
-            ->paginate($request->get('rowsPerPage') ?: 20);
-
-        return response($data);
+        return response($states);
     }
 
-    public function show(String $id)
-    {
-        $state = State::find($id);
-
-        if (! $state) {
-            return $this->messageError();
-        }
-
-        return Response()->json([
-            "states" => $state
-         ]);
-    }
-
-    protected function messageError()
-    {
-        return Response()->json(['Messagem' => 'Não foi possível efetuar a operação.'], 500);
-    }
+//    public function show(String $id)
+//    {
+//        $state = State::find($id);
+//
+//        if (! $state) {
+//            return $this->messageError();
+//        }
+//
+//        return Response()->json([
+//            "states" => $state
+//         ]);
+//    }
+//
+//    protected function messageError()
+//    {
+//        return Response()->json(['Messagem' => 'Não foi possível efetuar a operação.'], 500);
+//    }
 }
