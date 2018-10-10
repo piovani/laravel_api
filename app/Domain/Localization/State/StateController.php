@@ -9,7 +9,10 @@ class StateController extends Controller
 {
     public function index(Request $request)
     {
-        $states = State::all();
+        $states = State::filter()
+            ->paginate(
+                $request->get('limit', 15)
+            );
 
         return response($states);
     }
