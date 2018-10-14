@@ -26,3 +26,7 @@
 * Testes Unitários.
 
 * Implementar o Swagger
+
+* Sistema de E-Mail
+
+* Sistema de Feriados

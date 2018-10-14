@@ -18,12 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::resource('state', 'Localization\State\StateController')->only('index', 'show');
-//
-//Route::prefix('state')->group(function () {
-//    Route::get('/', 'StateController@index');
-//    Route::get('/{id}', 'StateController@show');
-//});
-
 
 //Route::prefix('city')->group(function () {
 //    Route::get('/', 'PeopleController@index');

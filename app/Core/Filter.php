@@ -2,35 +2,19 @@
 
 namespace App\Core;
 
+use Illuminate\Database\Eloquent\Builder;
+
 abstract class Filter
 {
-    protected $orderKey;
-    protected $orderDirection;
-    protected $filters;
-    protected $allowOrder;
-
-    public function apply($query, array $filters = [], $allowOrder)
+    public function apply(Builder $query)
     {
-        $this->allowOrder = $allowOrder;
-        $this->filters = $filters;
-
-        foreach ($this->filters as $methodName => $filter) {
-            if ($filter && method_exists($this, $methodName)) {
-                $query = $this->{$methodName}($query, $filter);
-            }
-        }
+        collect(request('filter', []))
+            ->each(function ($filter, $key) use (& $query) {
+                if ($filter && method_exists($this, $key)) {
+                    $query = $this->{$key}($query, $filter);
+                }
+            });
 
         return $query;
-    }
-
-    public function sortBy($query, $key)
-    {
-        if (!$this->allowOrder) {
-            return $query;
-        }
-
-        $direction = isset($this->filters['descending']) && $this->filters['descending'] == 'true' ? 'desc' : 'asc';
-
-        return $query->orderByRaw($key . ' ' . strtoupper($direction));
     }
 }
