@@ -6,5 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class State extends Model
 {
-    protected $fillable = ['name'];
+    protected $primaryKey = 'id';
+
+    const COLUMNS = [
+        'id',
+        'name',
+        'initials',
+        'created_at',
+        'updated_at',
+    ];
+
 }

@@ -25,7 +25,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         parent::boot();
 
-        Route::model('state', App\Domain\Localization\State::class);
+//        Route::model('state', App\Domain\Localization\State::class);
     }
 
     /**
