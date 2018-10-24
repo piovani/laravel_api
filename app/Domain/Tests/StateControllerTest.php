@@ -6,6 +6,10 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
 use App\Domain\Localization\State\State;
 
+/*
+ * @group states
+ * @group Localization
+ */
 class StateControllerTest extends TestCase
 {
     use DatabaseTransactions;
