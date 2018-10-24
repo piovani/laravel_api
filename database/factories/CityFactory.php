@@ -1,9 +1,12 @@
 <?php
 
 use Faker\Generator as Faker;
+use App\Domain\Localization\State\State;
 
-$factory->define(App\City::class, function (Faker $faker) {
+$factory->define(App\Domain\Localization\City\City::class, function (Faker $faker) {
     return [
-        //
+        'id' => $faker->uuid,
+        'name' =>  $faker->name,
+        'state' => $state_id ?? State::inRandomOrder()->first()->id,
     ];
 });

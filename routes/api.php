@@ -10,3 +10,5 @@ Route::prefix('state')->group(function () {
     Route::get('/', 'Localization\State\StateController@index');
     Route::get('/{id}', 'Localization\State\StateController@show');
 });
+
+Route::resource('city', 'Localization\City\CityController');

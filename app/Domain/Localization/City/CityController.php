@@ -1,22 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Domain\Localization\City;
 
 use App\City;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class CityController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $states = City::paginate($request->get('perPage') ?: 15);
+
+        return response($states);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
