@@ -2,9 +2,11 @@
 
 namespace App\Domain\Localization\City;
 
-use App\City;
+use App\Domain\Localization\City\City;
+use http\Env\Response;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Faker\Generator as Faker;
 
 class CityController extends Controller
 {
@@ -15,64 +17,48 @@ class CityController extends Controller
         return response($states);
     }
 
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|max:50',
+            'state' => 'required',
+        ]);
+
+        $faker = new Faker();
+        $city = new City();
+        $city->id = $faker->uuid;
+
+        dd($city);
+        $city->name = $request->get('name');
+        $city->state = $request->get('state');
+        $city->save();
+
+        return response($city);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\City  $city
-     * @return \Illuminate\Http\Response
-     */
     public function show(City $city)
     {
-        //
+        return response($city);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\City  $city
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(City $city)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\City  $city
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, City $city)
     {
-        //
+        $city->name = $request->get('name') ?? $city->name;
+        $city->state = $request->get('state') ?? $city->state;
+
+        if (!$city->save()) {
+            return response(['menssage' => 'Erro ao atualizar o registro'], 422);
+        }
+
+        return response($city);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\City  $city
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(City $city)
     {
-        //
+        if (!$city->delete()) {
+            return response(['menssage' => 'Erro ao excluir o registro'], 422);
+        }
+
+        return response($city);
     }
 }
