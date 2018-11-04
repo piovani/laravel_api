@@ -16,4 +16,10 @@ class State extends Model
         'updated_at',
     ];
 
+
+    public static function initial ($initials)
+    {
+        return State::where('initials', $initials)->first();
+    }
+
 }
