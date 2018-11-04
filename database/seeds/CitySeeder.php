@@ -12,7 +12,7 @@ class CitySeeder extends Seeder
         DB::table('cities')->truncate();
         $faker = Faker::create();
 
-        $cities = [
+        $stateAndCities = [
             "AC" => [
                 "Acrelândia",
                 "Assis Brasil",
@@ -5628,14 +5628,13 @@ class CitySeeder extends Seeder
             ]
     ];
 
-        foreach($cities as $i => $item) {
-            $state = State::initial(strtolower($i));
+        foreach($stateAndCities as $state => $cities) {
 
-            for($i = 0; $i < count($item); $i++) {
+            foreach ($cities as $city) {
                 City::create([
                     'id' => $faker->uuid,
-                    'name' => $item[$i],
-                    'state' => $state->id
+                    'name' => $city,
+                    'state' => strtolower($state)
                 ]);
             }
         }
