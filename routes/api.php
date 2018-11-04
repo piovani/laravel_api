@@ -2,40 +2,14 @@
 
 use Illuminate\Http\Request;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
-
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
 Route::prefix('state')->group(function () {
-    Route::get('/', 'StateController@index');
-    Route::get('/{id}', 'StateController@show');
+    Route::get('/', 'Localization\State\StateController@index');
+    Route::get('/{id}', 'Localization\State\StateController@show');
+    Route::get('/{id}/cities', 'Localization\State\StateController@cities');
 });
 
-Route::prefix('city')->group(function () {
-    Route::get('/', 'PeopleController@index');
-    Route::get('/{id}', 'PeopleController@show');
-    Route::post('/', 'PeopleController@store');
-    Route::put('/', 'PeopleController@update');
-    Route::delete('/{id}', 'PeopleController@destroy');
-});
-
-Route::prefix('people')->group(function () {
-    Route::get('/', 'PeopleController@index');
-    Route::get('/{id}', 'PeopleController@show');
-    Route::post('/', 'PeopleController@store');
-    Route::put('/', 'PeopleController@update');
-    Route::delete('/{id}', 'PeopleController@destroy');
-});
-
-//Route::resource('people', 'PeopleController');
+Route::resource('city', 'Localization\City\CityController')->except('edit', 'create');
