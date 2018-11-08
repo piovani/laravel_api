@@ -13,3 +13,5 @@ Route::prefix('state')->group(function () {
 });
 
 Route::resource('city', 'Localization\City\CityController')->except('edit', 'create');
+
+Route::resource('curso', 'School\Curso\CursoController');
