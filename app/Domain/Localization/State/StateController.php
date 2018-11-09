@@ -19,7 +19,7 @@ class StateController extends Controller
     {
         $state = State::findOrFail($id);
 
-        return \response($state, 200);
+        return response($state, 200);
     }
 
     public function cities(Request $request, $id)

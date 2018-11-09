@@ -4,9 +4,17 @@ namespace App\Domain\School\Curso;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Domain\School\Curso\CursoService;
 
 class CursoController extends Controller
 {
+    protected $service;
+
+    public function __construct()
+    {
+        $this->service = new CursoService();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -48,7 +56,7 @@ class CursoController extends Controller
      */
     public function show(Curso $curso)
     {
-        //
+        return response($curso, 200);
     }
 
     /**
@@ -71,7 +79,11 @@ class CursoController extends Controller
      */
     public function update(Request $request, Curso $curso)
     {
-        //
+        $data = $this
+            ->service
+            ->update($curso, $request);
+
+        return response($data);
     }
 
     /**
@@ -82,6 +94,8 @@ class CursoController extends Controller
      */
     public function destroy(Curso $curso)
     {
-        //
+        $curso->delete();
+
+        return response(null, 204);
     }
 }
