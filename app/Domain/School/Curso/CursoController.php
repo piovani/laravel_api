@@ -21,9 +21,11 @@ class CursoController extends Controller
      */
     public function index(Request $request)
     {
-        $cursos = Curso::paginate($request->get('perPage') ?: 15);
+        $data = $this
+            ->service
+            ->getList($request);
 
-        return response($cursos);
+        return response($data);
     }
 
     /**

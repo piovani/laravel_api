@@ -7,6 +7,11 @@ use Webpatser\Uuid\Uuid;
 
 class CursoService
 {
+    public function getList(Request $request)
+    {
+        return CursoFilter::seach($request->search)->paginate($request->perPage ?: 15);
+    }
+
     public function store(Request $request)
     {
         $curso = new Curso();
