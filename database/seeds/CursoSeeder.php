@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use CursoSeeder;
+use Illuminate\Support\Facades\DB;
+use App\Domain\School\Curso\Curso;
 
 class CursoSeeder extends Seeder
 {
@@ -12,9 +13,8 @@ class CursoSeeder extends Seeder
      */
     public function run()
     {
-        for($i = 0; $i < 50; $i++) {
-            $curso = new CursoSeeder();
-            $curso->save();
-        }
+//        DB::table('cursos')->truncate();
+//
+//        factory(Curso::class, 50)->create();
     }
 }

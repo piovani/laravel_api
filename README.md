@@ -11,10 +11,6 @@
 
 * Terminar a estrutura inicial.
 
-* Terminar o CRUD de States.
-
-* Terminar o CRUD de cities.
-
 * Terminar o CRUD de Persons.
 
 * Terminar o CRUD de Users.

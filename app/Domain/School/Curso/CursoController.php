@@ -3,7 +3,6 @@
 namespace App\Domain\School\Curso;
 
 use App\Http\Controllers\Controller;
-use App\Curso;
 use Illuminate\Http\Request;
 
 class CursoController extends Controller
@@ -13,9 +12,11 @@ class CursoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return 'teste';
+        $cursos = Curso::paginate($request->get('perPage') ?: 15);
+
+        return response($cursos);
     }
 
     /**
