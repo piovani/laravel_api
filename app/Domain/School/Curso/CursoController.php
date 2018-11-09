@@ -4,7 +4,6 @@ namespace App\Domain\School\Curso;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Domain\School\Curso\CursoService;
 
 class CursoController extends Controller
 {
@@ -28,16 +27,6 @@ class CursoController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -45,7 +34,11 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $this
+            ->service
+            ->store($request);
+
+        return response($data, 201);
     }
 
     /**
@@ -57,17 +50,6 @@ class CursoController extends Controller
     public function show(Curso $curso)
     {
         return response($curso, 200);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Curso  $curso
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Curso $curso)
-    {
-        //
     }
 
     /**

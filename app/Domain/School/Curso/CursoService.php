@@ -2,16 +2,27 @@
 
 namespace App\Domain\School\Curso;
 
-use http\Env\Request;
+use Illuminate\Http\Request;
+use Webpatser\Uuid\Uuid;
 
 class CursoService
 {
-    public function update(Curso $curso, Request $request)
+    public function store(Request $request)
     {
-        $curso = Curso::find($curso->id);
+        $curso = new Curso();
+        $curso->id = Uuid::generate()->string;
         $curso->name = $request->name;
         $curso->media_aprovacao = $request->media_aprovacao;
         $curso->numero_alunos = $request->numero_alunos;
         $curso->save();
+    }
+
+    public function update(Curso $curso, Request $request)
+    {
+        $newCurso = Curso::find($curso->id);
+        $newCurso->name = $request->name;
+        $newCurso->media_aprovacao = $request->media_aprovacao;
+        $newCurso->numero_alunos = $request->numero_alunos;
+        $newCurso->save();
     }
 }
