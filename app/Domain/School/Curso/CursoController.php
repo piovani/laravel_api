@@ -78,7 +78,8 @@ class CursoController extends Controller
      */
     public function destroy(Curso $curso)
     {
-        $curso->delete();
+        $curso->deleted = true;
+        $curso->save();
 
         return response(null, 204);
     }

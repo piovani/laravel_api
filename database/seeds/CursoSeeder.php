@@ -13,8 +13,8 @@ class CursoSeeder extends Seeder
      */
     public function run()
     {
-//        DB::table('cursos')->truncate();
-//
-//        factory(Curso::class, 50)->create();
+        DB::table('cursos')->truncate();
+
+        factory(Curso::class, 50)->create();
     }
 }

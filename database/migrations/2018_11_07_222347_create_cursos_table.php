@@ -15,9 +15,10 @@ class CreateCursosTable extends Migration
     {
         Schema::create('cursos', function (Blueprint $table) {
             $table->uuid('id');
-            $table->string('name');
+            $table->string('name', 255);
             $table->float('media_aprovacao');
             $table->integer('numero_alunos');
+            $table->boolean('deleted')->default(false);
             $table->timestamps();
         });
     }

@@ -12,6 +12,7 @@ class CursoFilter extends Filter
                 $subquery
                     ->orWhere('id', 'like', "%{$term}%")
                     ->orWhere('name', 'like', "%{$term}%");
-            });
+            })
+            ->where('deleted', false);
     }
 }

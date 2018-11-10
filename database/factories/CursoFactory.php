@@ -7,7 +7,8 @@ $factory->define(Curso::class, function (Faker $faker){
     return [
         'id' => $faker->uuid,
         'name' => $faker->name,
-        'media_aprovacao' => $faker->randomFloat(0, 10),
+        'media_aprovacao' => 0,
         'numero_alunos' => $faker->numberBetween(0, 999),
+        'deleted' => false,
     ];
 });
