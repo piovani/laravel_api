@@ -3,8 +3,6 @@
 namespace App\Domain\School\Curso;
 
 use Illuminate\Http\Request;
-use phpDocumentor\Reflection\Types\Self_;
-use Webpatser\Uuid\Uuid;
 
 class CursoService
 {
@@ -17,11 +15,9 @@ class CursoService
     {
         self::validate($request);
 
-        $curso = new Curso();
-        $curso->id = Uuid::generate()->string;
+        $curso = factory(Curso::class)->create();
         $curso->name = $request->name;
         $curso->media_aprovacao = $request->media_aprovacao;
-        $curso->numero_alunos = 0;
         $curso->save();
     }
 
