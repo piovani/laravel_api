@@ -2,9 +2,9 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use App\Domain\School\Curso\Curso;
+use App\Domain\School\Aluno\Aluno;
 
-class CursoSeeder extends Seeder
+class AlunoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,8 +13,8 @@ class CursoSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('cursos')->truncate();
+        DB::table('alunos')->truncate();
 
-        factory(Curso::class, 20)->create();
+        factory(Aluno::class, 200)->create();
     }
 }
