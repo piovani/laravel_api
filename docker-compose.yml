@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 
 volumes:
   laravel_api-mysql-data:
@@ -7,7 +7,7 @@ volumes:
 services:
   mysql:
     image: mysql:5.7
-    container_name: api-mysql
+    container_name: mysql
     volumes:
     - laravel_api-mysql-data:/var/lib/mysql
     environment:
@@ -20,9 +20,9 @@ services:
 
   app:
     image: ambientum/php:7.2-nginx
-    container_name: api
+    container_name: app
     volumes:
-    - .:/var/www/api
+    - .:/var/www/app
     ports:
     - "8000:8000"
     links:
