@@ -15,10 +15,16 @@ class CreateCitiesTable extends Migration
     {
         Schema::create('cities', function (Blueprint $table) {
             $table->uuid('id');
+            $table->primary('id');
             $table->string('name', 255);
             $table->uuid('state_id');
-            $table->foreign('state_id')
-                ->references('id')->on('states');
+
+            $table
+                ->foreign('state_id')
+                ->references('id')
+                ->on('states');
+
+            $table->boolean('deleted')->default(false);
             $table->timestamps();
         });
     }

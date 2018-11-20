@@ -15,6 +15,7 @@ class CreateAlunosTable extends Migration
     {
         Schema::create('alunos', function (Blueprint $table) {
             $table->uuid('id');
+            $table->primary('id');
             $table->string('cpt');
             $table->string('curso_id');
             $table->boolean('deleted')->default(false);
