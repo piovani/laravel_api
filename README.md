@@ -9,15 +9,7 @@
 
 <h1>O que é necessário ser feito</h1>
 
-* Terminar a estrutura inicial.
-
-* Terminar o CRUD de Persons.
-
-* Terminar o CRUD de Users.
-
 * Configurar Autetication com JWS
-
-* Configurar o Docker.
 
 * Testes Unitários.
 
@@ -25,4 +17,4 @@
 
 * Sistema de E-Mail
 
-* Sistema de Feriados
+* Sistema de Feriados para calculo de dias uteis.
