@@ -10,7 +10,6 @@ class CursoFilter extends Filter
     {
         return Curso::where(function ($subquery) use ($term) {
                 $subquery
-                    ->orWhere('id', 'like', "%{$term}%")
                     ->orWhere('name', 'like', "%{$term}%");
             })
             ->where('deleted', false);

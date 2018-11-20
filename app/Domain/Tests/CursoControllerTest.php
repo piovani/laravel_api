@@ -30,6 +30,7 @@ class CursoControllerTest extends TestCase
             ]);
     }
 
+    //NECESSARIO FINALIZAR O TESTE
     public function deveTestarAlteracaoDoRegistroCurso()
     {
         $curso = factory(Curso::class)->create();

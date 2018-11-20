@@ -7,24 +7,25 @@ use Illuminate\Http\Request;
 
 class AlunoController extends Controller
 {
+    protected $service;
+
+    public function __construct()
+    {
+        $this->service = new AlunoService();
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-    }
+        $data = $this
+            ->service
+            ->getList($request);
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return response($data);
     }
 
     /**
@@ -35,7 +36,11 @@ class AlunoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $this
+            ->service
+            ->store($request);
+
+        return response($data, 201);
     }
 
     /**
@@ -46,18 +51,7 @@ class AlunoController extends Controller
      */
     public function show(Aluno $aluno)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Aluno  $aluno
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Aluno $aluno)
-    {
-        //
+        return response($aluno, 200);
     }
 
     /**
@@ -69,7 +63,11 @@ class AlunoController extends Controller
      */
     public function update(Request $request, Aluno $aluno)
     {
-        //
+        $data = $this
+            ->service
+            ->update($aluno, $request);
+
+        return response($data);
     }
 
     /**
@@ -80,6 +78,9 @@ class AlunoController extends Controller
      */
     public function destroy(Aluno $aluno)
     {
-        //
+        $aluno->deleted = true;
+        $aluno->save();
+
+        return response(null, 204);
     }
 }
