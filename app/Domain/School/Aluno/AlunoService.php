@@ -9,7 +9,7 @@ class AlunoService
 {
     public function getList(Request $request)
     {
-        return AlunoFilter::serach($request->search)->paginate($request->perPage ?: 15);
+        return AlunoFilter::seach($request->search)->paginate($request->perPage ?: 15);
     }
 
     public function store(Request $request)

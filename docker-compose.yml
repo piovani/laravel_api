@@ -9,7 +9,7 @@ services:
     image: mysql:5.7
     container_name: mysql
     volumes:
-    - laravel_api-mysql-data:/var/lib/mysql
+    - ./storage/app/mysql:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: api
       MYSQL_DATABASE: api
@@ -24,6 +24,6 @@ services:
     volumes:
     - .:/var/www/app
     ports:
-    - "8000:8000"
+    - "8000:8080"
     links:
     - mysql

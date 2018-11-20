@@ -2,7 +2,7 @@
 
 namespace App\Domain\School\Aluno;
 
-use App\Domain\School\Aluno\Aluno;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class AlunoController extends Controller
