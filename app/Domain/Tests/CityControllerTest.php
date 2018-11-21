@@ -13,9 +13,11 @@ class CityControllerTest extends TestCase
 {
     use DatabaseTransactions;
 
+    private $routeBase = 'api/city';
+
     public function deveRetornarAPrimeiraPagina()
     {
-        $response = $this->json('GET', 'api/city');
+        $response = $this->json('GET', $this->routeBase);
 
         $response
             ->assertStatus(200)

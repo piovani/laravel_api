@@ -13,6 +13,6 @@ class AlunoFilter extends Filter
                 ->orWhere('name', 'like', "%{$term}%" )
                 ->orWhere('cpf', 'like', "%{$term}%" );
         })
-            ->where('deleted', false);
+            ->whereNull('deleted_at');
     }
 }
