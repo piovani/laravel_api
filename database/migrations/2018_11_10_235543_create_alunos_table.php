@@ -16,9 +16,23 @@ class CreateAlunosTable extends Migration
         Schema::create('alunos', function (Blueprint $table) {
             $table->uuid('id');
             $table->primary('id');
-            $table->string('cpt');
+            $table->string('cpt', 11);
             $table->string('curso_id');
-            $table->boolean('deleted')->default(false);
+
+            $table->uuid('city_id');
+            $table
+                ->foreign('city_id')
+                ->references('id')
+                ->on('cities');
+
+            $table->uuid('state_id');
+            $table
+                ->foreign('state_id')
+                ->references('id')
+                ->on('states');
+
+            $table->integer('faltas')->default(0);
+            $table->dateTime('deleted')->default(null);
             $table->timestamps();
         });
     }

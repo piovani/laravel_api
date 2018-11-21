@@ -9,7 +9,7 @@ class CitySeeder extends Seeder
 {
     public function run()
     {
-        DB::table('cities')->truncate();
+        DB::table('cities')->delete();
         $faker = Faker::create();
 
         $stateAndCities = [
@@ -5628,13 +5628,15 @@ class CitySeeder extends Seeder
             ]
     ];
 
-        foreach($stateAndCities as $state => $cities) {
+        foreach($stateAndCities as $stateInitials => $cities) {
+
+            $state = State::where('initials', strtolower($stateInitials))->first();
 
             foreach ($cities as $city) {
                 City::create([
                     'id' => $faker->uuid,
                     'name' => $city,
-                    'state' => strtolower($state)
+                    'state_id' => $state->id,
                 ]);
             }
         }

@@ -7,6 +7,6 @@ $factory->define(App\Domain\Localization\City\City::class, function (Faker $fake
     return [
         'id' => $faker->uuid,
         'name' =>  $faker->name,
-        'state' => $state_id ?? State::inRandomOrder()->first()->id,
+        'state_id' => $state_id ?? State::inRandomOrder()->first()->id,
     ];
 });

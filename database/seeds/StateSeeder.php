@@ -13,7 +13,7 @@ class StateSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('states')->truncate();
+        DB::table('states')->delete();
         $faker = Faker::create();
 
         $states = [

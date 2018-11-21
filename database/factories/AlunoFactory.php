@@ -2,13 +2,14 @@
 
 use App\Domain\School\Aluno\Aluno;
 use Faker\Generator as Faker;
+use App\Domain\School\Curso\Curso;
 
 $factory->define(Aluno::class, function (Faker $faker) {
     return [
         'id' => $faker->uuid,
         'name' => $faker->name,
-        'cpf' => '',
-        'curso_id' => factory(Curso::class)->id,
+        'cpf' => 'teste',
+        'curso_id' => factory(Curso::class)->create()->id,
         'deleted' => false,
     ];
 });
