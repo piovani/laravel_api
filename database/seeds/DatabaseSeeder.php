@@ -11,11 +11,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this->call('UserSeeder');
+
         //LOCALIZATION
         $this->call('StateSeeder');
         $this->call('CitySeeder');
-//
-//        //SCHOOL
+
+        //SCHOOL
         $this->call('CursoSeeder');
         $this->call('AlunoSeeder');
     }
