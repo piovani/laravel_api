@@ -1,10 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
-
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::post('auth', 'Auth\AuthController@authenticate');
 
 Route::prefix('state')->group(function () {
     Route::get('/', 'Localization\State\StateController@index');
