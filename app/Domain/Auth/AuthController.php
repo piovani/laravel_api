@@ -3,6 +3,7 @@
 namespace App\Domain\Auth;
 
 use Illuminate\Http\Request;
+use JWTAuth;
 
 class AuthController
 {
@@ -25,5 +26,12 @@ class AuthController
 
             return response('Verifique o seu E-Mail ou/e Senha');
         }
+    }
+
+    public function refresh()
+    {
+        $token = JWTAuth::refresh(JWTAuth::getToken());
+
+        return response(compact('token'));
     }
 }

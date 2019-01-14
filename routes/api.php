@@ -3,6 +3,8 @@
 Route::post('auth', 'Auth\AuthController@authenticate');
 
 Route::group(['middleware' => ['jwt.verify']], function() {
+    Route::post('refresh', 'Auth\AuthController@refresh');
+
     Route::get('user','User\UserController@show');
 
     Route::prefix('state')->group(function () {
