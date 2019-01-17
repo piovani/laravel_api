@@ -9,8 +9,6 @@
 
 <h1>O que é necessário ser feito</h1>
 
-* Configurar Autetication com JWS
-
 * Testes Unitários.
 
 * Implementar o Swagger
