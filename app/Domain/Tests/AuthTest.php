@@ -1,20 +1,31 @@
 <?php
 
-namespace Tests\Feature;
+namespace App\Domain\Tests;
 
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Domain\User\User;
+use PHPUnit\Framework\TestCase;
 
 class AuthTest extends TestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testExample()
+    public function testAutenticacaoComSucesso()
     {
-        $this->assertTrue(true);
+        $user = factory(User::class)
+            ->create([
+                'email'    => 'test@test.com',
+                'password' => '1234',
+            ]);
+
+        dd($user);
     }
+
+    public function testAutenticacaoComEmailErrado()
+    {
+
+    }
+
+    public function testAutenticacaoComSenhaErrada()
+    {
+
+    }
+
 }

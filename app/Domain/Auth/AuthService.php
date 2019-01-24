@@ -2,9 +2,9 @@
 
 namespace App\Domain\Auth;
 
-use mysql_xdevapi\Exception;
 use JWTAuth;
 use App\Domain\User\User;
+use Tymon\JWTAuth\Exceptions\JWTException as Exception;
 
 class AuthService
 {
@@ -13,7 +13,7 @@ class AuthService
         $user = User::where('email', $email)->first();
 
         if (!$user) {
-            throw new Exeption('Usuário não encontrado');
+            throw new Exception('Usuário não encontrado');
         }
 
         if ($user->password !== $password) {

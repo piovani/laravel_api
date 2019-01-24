@@ -4,6 +4,7 @@ namespace App\Domain\Auth;
 
 use Illuminate\Http\Request;
 use JWTAuth;
+use Exception;
 
 class AuthController
 {
@@ -16,9 +17,12 @@ class AuthController
 
     public function authenticate(Request $request)
     {
+        $token = $this->service->gerarToken($request->email, $request->password);
+
+        dd($token);
+
         try {
 
-            $token = $this->service->gerarToken($request->email, $request->password);
 
             return response(compact('token'));
 
