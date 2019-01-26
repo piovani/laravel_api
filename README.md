@@ -1,13 +1,50 @@
-<h1>Comandos</h1>
+# laravel_api
 
-1 - composer install
+## Comandos com Docker (Recomendado)
+<b>Obs:</b> não é necessário ter o PHP ou Composer instalados, apenas o Docker e Docker-Compose.
+```
+docker-compose up -d
+```
 
-2 - php artisan migrate
+``` 
+docker-compose run app bash
+```
 
-3 - php artisan db:seed
+``` 
+composer install
+```
+
+``` 
+cp .env.example .env
+```
+
+```
+php artisan migrate
+```
+
+```
+php artisan db:seed
+```
+## Comandos sem Docker
+<b>Obs:</b> é necessário ter o PHP, Composer e o Drive sqlite do PHP inslados e liberados em sua máquina.
+``` 
+composer install 
+```
+
+```
+cp .env.example .env
+```
+
+```
+php artisan migrate
+```
+
+```
+php artisan db:seed
+```
 
 
-<h1>O que é necessário ser feito</h1>
+## O que o projeto está precisando
 
 * Testes Unitários.
 
@@ -16,3 +53,5 @@
 * Sistema de E-Mail
 
 * Sistema de Feriados para calculo de dias uteis.
+
+* Integração com a api dos Correios para pesquisar o endereço atraves do CEP.
