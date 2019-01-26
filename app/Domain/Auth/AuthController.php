@@ -19,10 +19,7 @@ class AuthController
     {
         $token = $this->service->gerarToken($request->email, $request->password);
 
-        dd($token);
-
         try {
-
 
             return response(compact('token'));
 
