@@ -1,4 +1,5 @@
 # laravel_api
+Esse projeto é um laboratório de testes, onde faço teste com o laravel e outras tecnologias integradas que façam parte do back-end de alguma forma.
 
 ## Comandos com Docker (Recomendado)
 <b>Obs:</b> não é necessário ter o PHP ou Composer instalados, apenas o Docker e Docker-Compose.
