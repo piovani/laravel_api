@@ -9,6 +9,12 @@ class AuthTest extends TestCase
 {
     public function testAutenticacaoComSucesso()
     {
+        $user = factory(User::class)->create([
+            'email'    => 'test@test.com',
+            'password' => 'password',
+        ]);
+
+        dd($user);
         $email    = 'test@test.com';
         $password = '1234';
 
