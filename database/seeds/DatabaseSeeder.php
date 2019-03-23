@@ -14,8 +14,8 @@ class DatabaseSeeder extends Seeder
         $this->call('UserSeeder');
 
         //LOCALIZATION
-//        $this->call('StateSeeder');
-//        $this->call('CitySeeder');
+        $this->call('StateSeeder');
+        $this->call('CitySeeder');
 
         //SCHOOL
 //        $this->call('CursoSeeder');

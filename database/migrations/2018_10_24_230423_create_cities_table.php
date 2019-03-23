@@ -24,8 +24,8 @@ class CreateCitiesTable extends Migration
                 ->references('id')
                 ->on('states');
 
-            $table->boolean('deleted')->default(false);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

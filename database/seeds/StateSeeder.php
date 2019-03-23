@@ -16,7 +16,7 @@ class StateSeeder extends Seeder
         DB::table('states')->delete();
         $faker = Faker::create();
 
-        $states = [
+        $states = collect([
             ["Acre", "ac"],
             ["Alagoas", "al"],
             ["Amazonas", "am"],
@@ -44,14 +44,14 @@ class StateSeeder extends Seeder
             ["Segipe", "se"],
             ["São Paulo", "sp"],
             ["Tocantins", "to"]
-        ];
+        ]);
 
-        foreach (range(0, 26) as $i) {
+        $states->each(function ($array) use ($faker) {
             State::create([
-                'id' => $faker->uuid,
-                'name' => $states[$i][0],
-                'initials' => $states[$i][1]
+                'id'       => $faker->uuid,
+                'name'     => $array[0],
+                'initials' => $array[1],
             ]);
-        }
+        });
     }
 }

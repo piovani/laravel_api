@@ -19,6 +19,7 @@ class CreateStatesTable extends Migration
             $table->string('name', '80');
             $table->string('initials', '2');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
