@@ -15,60 +15,40 @@ class AlunoController extends Controller
         $this->service = new AlunoService();
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index(Request $request)
     {
-        $data = $this
-            ->service
-            ->getList($request);
-
-        return response($data);
+        return response($this->service->getList($request));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        $data = $this
-            ->service
-            ->store($request);
+        $request->validate([
+            'name'     => 'required|max:255',
+            'cpf'      => 'required|min:11|max:11',
+            'curso_id' => 'required|exists:cursos,id',
+            'city_id'  => 'required|exists:cities,id',
+            'state_id' => 'required|exists:states,id',
+        ]);
 
-        return response($data, 201);
+        return response($this->service->store($request), 201);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Aluno  $aluno
-     * @return \Illuminate\Http\Response
-     */
     public function show(Aluno $aluno)
     {
         return response($aluno, 200);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Aluno  $aluno
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Aluno $aluno)
     {
-        $data = $this
-            ->service
-            ->update($aluno, $request);
+        $request->validate([
+            'name'     => 'max:255',
+            'cpf'      => 'min:11|max:11',
+            'curso_id' => 'exists:cursos,id',
+            'city_id'  => 'exists:cities,id',
+            'state_id' => 'exists:states,id',
+        ]);
 
-        return response($data);
+        return response($this->service->update($aluno, $request), 200);
     }
 
     /**

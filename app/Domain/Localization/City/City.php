@@ -19,4 +19,9 @@ class City extends Model
         'created_at',
         'updated_at',
     ];
+
+    public function state()
+    {
+        return $this->hasOne('State');
+    }
 }

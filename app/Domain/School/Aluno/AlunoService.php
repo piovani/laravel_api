@@ -3,6 +3,7 @@
 namespace App\Domain\School\Aluno;
 
 use App\Domain\School\Curso\Curso;
+use Faker\Factory;
 use Illuminate\Http\Request;
 
 class AlunoService
@@ -14,28 +15,30 @@ class AlunoService
 
     public function store(Request $request)
     {
-        self:$this->validate($request);
-
-        $aluno = factory(Curso::class)->create();
-        $aluno->name = $request->name;
-        $aluno->cpf = $request->cpf;
-        $aluno->id_curso = $request->id_curso;
-        $aluno->save();
+        return \factory(Aluno::class)->create([
+            'name'     => $request->name,
+            'cpf'      => $request->cpf,
+            'curso_id' => $request->curso_id,
+            'city_id'  => $request->city_id,
+            'state_id' => $request->state_id,
+        ]);
     }
 
     public function update(Aluno $aluno, Request $request)
     {
-        $aluno->update([
-            'name'     => $request->name,
-            'id_curso' => $request->id_curso,
-        ]);
-    }
+        Aluno::update([
+            'id' => '',
+        ], [
 
-    private function validate(Request $request)
-    {
-        return $request->validate([
-            'id'  => 'required',
-            'cpf' => 'required|min:11|max:11',
         ]);
+
+        $aluno->name     = $request->name     ? $request->name     : $aluno->name;
+        $aluno->cpf      = $request->cpf      ? $request->cpf      : $aluno->cpf;
+        $aluno->curso_id = $request->curso_id ? $request->curso_id : $aluno->curso_id;
+        $aluno->city_id  = $request->city_id  ? $request->city_id  : $aluno->city_id;
+        $aluno->state_id = $request->state_id ? $request->state_id : $aluno->state_id;
+        $aluno->save();
+
+        return $aluno;
     }
 }
