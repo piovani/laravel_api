@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call('CitySeeder');
 
         //SCHOOL
-//        $this->call('CursoSeeder');
-//        $this->call('AlunoSeeder');
+        $this->call('CursoSeeder');
+        $this->call('AlunoSeeder');
     }
 }
