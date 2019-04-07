@@ -25,20 +25,17 @@ class AlunoService
 
     public function update(Aluno $aluno, Request $request)
     {
-        self::validate($request);
-
-        $aluno->name = $request->name;
-        $aluno->cpf = $request->cpf;
-        $aluno->id_curso = $request->id_curso;
-        $aluno->save();
+        $aluno->update([
+            'name'     => $request->name,
+            'id_curso' => $request->id_curso,
+        ]);
     }
 
     private function validate(Request $request)
     {
         return $request->validate([
-            'name' => 'required|max:255',
+            'id'  => 'required',
             'cpf' => 'required|min:11|max:11',
-            'id_curso' => 'required|exists:cursos',
         ]);
     }
 }
