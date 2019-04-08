@@ -26,19 +26,18 @@ class AlunoService
 
     public function update(Aluno $aluno, Request $request)
     {
-        Aluno::update([
-            'id' => '',
-        ], [
-
+        $aluno->update([
+            'name'     => $request->name,
+            'cpf'      => $request->cpf,
+            'curso_id' => $request->curso_id,
+            'city_id'  => $request->city_id,
+            'state_id' => $request->state_id,
         ]);
 
-        $aluno->name     = $request->name     ? $request->name     : $aluno->name;
-        $aluno->cpf      = $request->cpf      ? $request->cpf      : $aluno->cpf;
-        $aluno->curso_id = $request->curso_id ? $request->curso_id : $aluno->curso_id;
-        $aluno->city_id  = $request->city_id  ? $request->city_id  : $aluno->city_id;
-        $aluno->state_id = $request->state_id ? $request->state_id : $aluno->state_id;
-        $aluno->save();
-
         return $aluno;
+    }
+
+    public function getRelacionCursoForStudant(Request $request)
+    {
     }
 }

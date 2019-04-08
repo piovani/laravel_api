@@ -18,7 +18,6 @@ Route::group(['middleware' => ['jwt.verify']], function() {
     Route::resource('curso', 'School\Curso\CursoController')->except('edit', 'create');
 
     Route::resource('aluno', 'School\Aluno\AlunoController')->except('edit', 'create');
-    Route::get('aluno/relacao/curso', 'School\Aluno\AlunoController@getRelacaoAlunoCurso');
 });
 
 
