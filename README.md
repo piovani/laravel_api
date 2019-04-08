@@ -57,3 +57,11 @@ php artisan db:seed
 * Sistema de Feriados para calculo de dias uteis.
 
 * Integração com a api dos Correios para pesquisar o endereço atraves do CEP.
+
+* Instalar o gerenciamneto de usuarios do Spark
+
+* Sistema de filas pequena, media e alta prioridades, também levar com consideração tempo de execução.
+
+* Sistema do Laravel MIX
+
+* Sistema de Resources especiais para cada tipo de requisição.
