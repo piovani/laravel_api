@@ -3,6 +3,7 @@
 namespace App\Domain\School\Aluno;
 
 use App\Domain\School\Curso\Curso;
+use Faker\Factory;
 use Illuminate\Http\Request;
 
 class AlunoService
@@ -14,28 +15,29 @@ class AlunoService
 
     public function store(Request $request)
     {
-        self:$this->validate($request);
-
-        $aluno = factory(Curso::class)->create();
-        $aluno->name = $request->name;
-        $aluno->cpf = $request->cpf;
-        $aluno->id_curso = $request->id_curso;
-        $aluno->save();
+        return \factory(Aluno::class)->create([
+            'name'     => $request->name,
+            'cpf'      => $request->cpf,
+            'curso_id' => $request->curso_id,
+            'city_id'  => $request->city_id,
+            'state_id' => $request->state_id,
+        ]);
     }
 
     public function update(Aluno $aluno, Request $request)
     {
         $aluno->update([
             'name'     => $request->name,
-            'id_curso' => $request->id_curso,
+            'cpf'      => $request->cpf,
+            'curso_id' => $request->curso_id,
+            'city_id'  => $request->city_id,
+            'state_id' => $request->state_id,
         ]);
+
+        return $aluno;
     }
 
-    private function validate(Request $request)
+    public function getRelacionCursoForStudant(Request $request)
     {
-        return $request->validate([
-            'id'  => 'required',
-            'cpf' => 'required|min:11|max:11',
-        ]);
     }
 }
