@@ -10,11 +10,19 @@ class AlunoService
 {
     public function getList(Request $request)
     {
-        return AlunoFilter::seach($request->search)->paginate($request->perPage ?: 15);
+        return AlunoFilter::seach($request->search)
+            ->paginate($request->perPage ?: 15);
     }
 
     public function store(Request $request)
     {
+        self:$this->validate($request);
+
+        factory(Curso::class)->create([
+            'name'     => $request->name,
+            'cpf'      => $request->cpf,
+            'id_curso' => $request->id_curso,
+        ]);
         return \factory(Aluno::class)->create([
             'name'     => $request->name,
             'cpf'      => $request->cpf,
@@ -39,5 +47,9 @@ class AlunoService
 
     public function getRelacionCursoForStudant(Request $request)
     {
+        return $request->validate([
+            'name' => 'required',
+            'cpf' => 'required|min:11|max:11',
+        ]);
     }
 }

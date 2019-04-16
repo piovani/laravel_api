@@ -2,10 +2,9 @@
 
 namespace App\Domain\Localization\City;
 
-use App\Domain\Localization\City\City;
-use http\Env\Response;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Domain\Localization\City\CityRequest;
 use Faker\Generator as Faker;
 
 class CityController extends Controller
@@ -17,12 +16,9 @@ class CityController extends Controller
         return response($states);
     }
 
-    public function store(Request $request)
+    public function store(CityRequest $request)
     {
-        $request->validate([
-            'name' => 'required|max:50',
-            'state' => 'required',
-        ]);
+        dd('AQUI');
 
         $faker = new Faker();
         $city = new City();
