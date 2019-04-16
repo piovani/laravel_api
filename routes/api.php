@@ -2,18 +2,15 @@
 
 Route::post('auth', 'Auth\AuthController@authenticate');
 
+Route::resource('state', 'Localization\State\StateController')->only('index', 'show');
+Route::get('state/{id}/cities', 'Localization\State\StateController@cities');
+
+Route::resource('city', 'Localization\City\CityController')->except('edit', 'update', 'create', 'destroy');
+
 Route::group(['middleware' => ['jwt.verify']], function() {
     Route::post('refresh', 'Auth\AuthController@refresh');
 
     Route::get('user','User\UserController@show');
-
-    Route::resource('state', 'Localization\State\StateController')->only('index', 'show');
-
-    Route::prefix('state')->group(function () {
-        Route::get('/{id}/cities', 'Localization\State\StateController@cities');
-    });
-
-    Route::resource('city', 'Localization\City\CityController')->except('edit', 'create');
 
     Route::resource('curso', 'School\Curso\CursoController')->except('edit', 'create');
 

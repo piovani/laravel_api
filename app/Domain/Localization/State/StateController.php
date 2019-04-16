@@ -11,20 +11,20 @@ class StateController extends Controller
 {
     public function index(Request $request)
     {
-        $states = State::paginate($request->get('perPage') ?: 15);
-
-        return response($states);
+        return response(State::paginate($request->perPage ?: 15));
     }
 
-    public function show($id)
+    public function show(State $state)
     {
-        $state = State::findOrFail($id);
-
         return response($state, 200);
     }
 
     public function cities(Request $request)
     {
+        $request->validate([
+            'id' => 'exists:states,id'
+        ]);
+
         return City::where('state_id', $request->id)
             ->paginate($request->get('perPage') ?: 15);
     }
