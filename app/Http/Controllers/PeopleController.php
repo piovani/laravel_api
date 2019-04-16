@@ -13,41 +13,16 @@ class PeopleController extends Controller
     {
         $people = People::all();
         return Response()->json([
-            'people' => $people
+            'people' => $people,
         ]);
-    }
-
-    public function store(Request $request)
-    {
-        $request->validate([
-            'first_name' => 'required|min:1|max:255',
-            'last_name' => 'required|min:1|max:255',
-            'bith_date' => 'required|date'
-        ]);
-
-        $people = new People();
-        $people->id = (string) Uuid::generate();
-        $people->first_name = $request->first_name;
-        $people->last_name = $request->last_name;
-        $people->bith_date = $request->bith_date;
-
-        if (! $people->save()) {
-            return $this->messageError();
-        }
-
-        return $this->messageSuccess();
     }
 
     public function show(String $id)
     {
-        $people = People::find($id);
-
-        if (! $people) {
-            $this->messageError();
-        }
+        $people = People::findOrFail($id);
 
         return Response()->json([
-            'people' => $people
+            'people' => $people,
         ]);
     }
 
@@ -57,41 +32,22 @@ class PeopleController extends Controller
             'id' => 'required',
         ]);
 
-        $people = People::find($request->id);
-
-        if (! $people) {
-            return $this->messageError();
-        }
-
+        $people             = People::findOrFail($request->id);
         $people->first_name = isset($request->first_name) ? $request->first_name : $people->first_name;
-        $people->last_name = isset($request->last_name) ? $request->last_name : $people->last_name;
-        $people->bith_date = isset($request->bith_date) ? $request->bith_date : $people->bith_date;
+        $people->last_name  = isset($request->last_name)  ? $request->last_name  : $people->last_name;
+        $people->bith_date  = isset($request->bith_date)  ? $request->bith_date  : $people->bith_date;
 
-        if (! $people->save()) {
-            return $this->messageError();
-        }
+        if (!$people->save()) return $this->messageResponse( 500);
 
-        return $this->messageSuccess();
+        $this->messageResponse(200);
     }
 
     public function destroy(String $id)
     {
-        $people = People::find($id);
+        $people = People::findOrFail($id);
 
-        if (!$people || ! $people->delete()) {
-            return $this->messageError();
-        }
+        if (!$people->delete()) return $this->messageResponse(500);
 
-        return $this->messageSuccess();
-    }
-
-    protected function messageSuccess()
-    {
-        return Response()->json(['Messagem' => 'Operação efetuada com sucesso.'], 200);
-    }
-
-    protected function messageError()
-    {
-        return Response()->json(['Messagem' => 'Não foi possível efetuar a operação.'], 500);
+        return $this->messageSuccess(200);
     }
 }

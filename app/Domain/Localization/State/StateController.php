@@ -3,6 +3,7 @@
 namespace App\Domain\Localization\State;
 
 use App\Domain\Localization\City\City;
+use App\Domain\Localization\State\State;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -22,11 +23,9 @@ class StateController extends Controller
         return response($state, 200);
     }
 
-    public function cities(Request $request, $id)
+    public function cities(Request $request)
     {
-        $state = State::findOrFail($id);
-        $cities = City::where('state', $state->initials)->paginate($request->get('perPage') ?: 15);
-
-        return response($cities);
+        return City::where('state_id', $request->id)
+            ->paginate($request->get('perPage') ?: 15);
     }
 }
