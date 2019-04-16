@@ -14,10 +14,9 @@ class CreateAlunosTable extends Migration
     public function up()
     {
         Schema::create('alunos', function (Blueprint $table) {
-            $table->uuid('id');
-            $table->primary('id');
+            $table->uuid('id')->primary();
             $table->string('name', 255);
-            $table->string('cpf', 11);
+            $table->string('cpf', 11)->unique();
             $table->string('curso_id');
 
             $table->uuid('city_id');
