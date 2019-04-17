@@ -8,7 +8,7 @@ class CursoService
 {
     public function getList(Request $request)
     {
-        return CursoFilter::seach($request->search)->paginate($request->perPage ?: 15);
+        return CursoFilter::search($request->search)->paginate();
     }
 
     public function store(Request $request)

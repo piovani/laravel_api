@@ -6,7 +6,7 @@ use App\Core\Filter;
 
 class CursoFilter extends Filter
 {
-    public static function seach($term = '')
+    public static function search($term = '')
     {
         return Curso::where(function ($subquery) use ($term) {
                 $subquery

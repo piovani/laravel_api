@@ -21,11 +21,7 @@ class CursoController extends Controller
      */
     public function index(Request $request)
     {
-        $data = $this
-            ->service
-            ->getList($request);
-
-        return response($data);
+        return response($this->service->getList($request));
     }
 
     /**

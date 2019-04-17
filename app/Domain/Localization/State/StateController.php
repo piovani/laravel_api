@@ -11,7 +11,7 @@ class StateController extends Controller
 {
     public function index(Request $request)
     {
-        return response(State::paginate($request->perPage ?: 15));
+        return response(State::paginate());
     }
 
     public function show(State $state)
