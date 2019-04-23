@@ -2,7 +2,6 @@
 
 namespace App\Domain\Localization\State;
 
-use App\Domain\Localization\City\City;
 use App\Domain\Localization\State\State;
 use App\Http\Controllers\Controller;
 use App\Domain\Localization\State\StateResource;
