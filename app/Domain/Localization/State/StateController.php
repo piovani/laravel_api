@@ -14,7 +14,7 @@ class StateController extends Controller
     {
         return StateResource::collection(
             State::where(function ($query) use ($request) {
-                $query->where('name', 'like', "%{$request->seach}%")
+                $query->where('name',     'like', "%{$request->seach}%")
                     ->orWhere('initials', 'like', "%{$request->seach}%");
             })->paginate()
         );
@@ -22,7 +22,7 @@ class StateController extends Controller
 
     public function show(State $state)
     {
-        return response(json_encode($state), 200);
+        return new StateResource($state);
     }
 
     public function cities(Request $request)

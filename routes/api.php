@@ -8,12 +8,9 @@ Route::group(['middleware' => ['jwt.verify']], function() {
     Route::get('user','User\UserController@show');
 
     Route::resource('state', 'Localization\State\StateController')->only('index', 'show');
+    Route::get('state/{id}/cities', 'Localization\State\StateController@cities');
 
-    Route::prefix('state')->group(function () {
-        Route::get('/{id}/cities', 'Localization\State\StateController@cities');
-    });
-
-    Route::resource('city', 'Localization\City\CityController')->except('edit', 'create');
+    Route::resource('city', 'Localization\City\CityController')->except('edit', 'store', 'create', 'update', 'destroy');
 
     Route::resource('curso', 'School\Curso\CursoController')->except('edit', 'create');
 

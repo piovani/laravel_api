@@ -20,6 +20,12 @@ class City extends Model
         'updated_at',
     ];
 
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];
+
     public function scopeState($query)
     {
         return $query->where('state_id');
