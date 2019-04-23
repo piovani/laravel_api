@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use http\Env\Response;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -19,7 +20,7 @@ class Controller extends BaseController
         500 => self::messageError,
     ];
 
-    protected function messageResponse($status = 200)
+    protected function messageResponse($message = null, $status = 200)
     {
         return Response()->json([
             'Messagem' => self::messsages[$status],

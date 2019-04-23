@@ -31,15 +31,9 @@ class CursoController extends Controller
         return response($data, 201);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Curso  $curso
-     * @return \Illuminate\Http\Response
-     */
     public function show(Curso $curso)
     {
-        return response($curso, 200);
+        return new CursoResource($curso);
     }
 
     /**
@@ -58,16 +52,9 @@ class CursoController extends Controller
         return response($data);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Curso  $curso
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Curso $curso)
     {
-        $curso->deleted = true;
-        $curso->save();
+        $curso->delete();
 
         return response(null, 204);
     }
