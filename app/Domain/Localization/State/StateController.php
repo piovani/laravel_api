@@ -22,16 +22,14 @@ class StateController extends Controller
         );
     }
 
-    public function show($id)
+    public function show(State $state)
     {
-        $state = State::findOrFail($id);
-
-        return response($state, 200);
+        return StateResource::collection($state);
     }
 
     public function cities(Request $request)
     {
         return City::where('state_id', $request->id)
-            ->paginate($request->get('perPage') ?: 15);
+            ->paginate();
     }
 }
