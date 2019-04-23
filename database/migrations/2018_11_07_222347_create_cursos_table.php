@@ -19,8 +19,8 @@ class CreateCursosTable extends Migration
             $table->string('name', 255);
             $table->float('media_aprovacao');
             $table->integer('numero_alunos');
-            $table->boolean('deleted')->default(false);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

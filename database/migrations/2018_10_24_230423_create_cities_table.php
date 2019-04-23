@@ -19,8 +19,7 @@ class CreateCitiesTable extends Migration
             $table->string('name', 255);
             $table->uuid('state_id');
 
-            $table
-                ->foreign('state_id')
+            $table->foreign('state_id')
                 ->references('id')
                 ->on('states');
 

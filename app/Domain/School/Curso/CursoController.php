@@ -4,28 +4,16 @@ namespace App\Domain\School\Curso;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Domain\School\Curso\CursoResource;
 
 class CursoController extends Controller
 {
-    protected $service;
-
-    public function __construct()
-    {
-        $this->service = new CursoService();
-    }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index(Request $request)
     {
-        $data = $this
-            ->service
-            ->getList($request);
-
-        return response($data);
+        return CursoResource::collection(
+            Curso::where('name', 'like', "%{$request->search}%")
+                ->paginate()
+        );
     }
 
     /**
