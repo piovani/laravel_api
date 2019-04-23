@@ -20,8 +20,8 @@ class City extends Model
         'updated_at',
     ];
 
-    public function state()
+    public function scopeState($query)
     {
-        return $this->hasOne('State');
+        return $query->where('state_id');
     }
 }

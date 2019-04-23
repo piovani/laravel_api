@@ -6,6 +6,7 @@ use App\Domain\Localization\City\City;
 use App\Domain\Localization\State\State;
 use App\Http\Controllers\Controller;
 use App\Domain\Localization\State\StateResource;
+use App\Domain\Localization\City\CityResource;
 
 use Illuminate\Http\Request;
 
@@ -17,19 +18,21 @@ class StateController extends Controller
             State::where(function ($query) use ($request) {
                 $query->where('name', 'like', "%{$request->seach}%")
                     ->orWhere('initials', 'like', "%{$request->seach}%");
-            })
-                ->paginate()
+            })->paginate()
         );
     }
 
     public function show(State $state)
     {
-        return StateResource::collection($state);
+        return response(json_encode($state), 200);
     }
 
     public function cities(Request $request)
     {
-        return City::where('state_id', $request->id)
-            ->paginate();
+        return CityResource::collection(
+            State::findOrFail($request->id)
+                ->cities()
+                ->paginate()
+        );
     }
 }

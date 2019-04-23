@@ -20,8 +20,18 @@ class State extends Model
         'updated_at',
     ];
 
+    protected $hidden = [
+        'updated_at',
+        'deleted_at',
+    ];
+
     public static function initial ($initials)
     {
         return State::where('initials', $initials)->first();
+    }
+
+    public function cities()
+    {
+        return $this->hasMany('App\Domain\Localization\City\City');
     }
 }
