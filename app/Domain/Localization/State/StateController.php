@@ -6,7 +6,6 @@ use App\Domain\Localization\State\State;
 use App\Http\Controllers\Controller;
 use App\Domain\Localization\State\StateResource;
 use App\Domain\Localization\City\CityResource;
-
 use Illuminate\Http\Request;
 
 class StateController extends Controller

@@ -2,7 +2,6 @@
 
 namespace App\Domain\Localization\State;
 
-use App\Domain\Localization\City\City;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -21,6 +20,7 @@ class State extends Model
     ];
 
     protected $hidden = [
+        'created_at',
         'updated_at',
         'deleted_at',
     ];
