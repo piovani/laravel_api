@@ -1,0 +1,798 @@
+{
+	"info": {
+		"_postman_id": "3e058715-5445-4eb2-9ee2-7a4d2c3fd0e7",
+		"name": "api_laravel",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Autentication",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"admin@admin.com\",\n\t\"password\": \"1234\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8000/api/auth",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoIiwiaWF0IjoxNTU1NDU1NDc0LCJleHAiOjE1NTU0NTkwNzQsIm5iZiI6MTU1NTQ1NTQ3NCwianRpIjoiYTRxTUxhT3NTNHZRbk5ZUCIsInN1YiI6MSwicHJ2IjoiOTY5ZDcyZGU2YjQxNDNlZjE0NjYxODkxMTE2NTg2ZGI2NjUwOWQ2NSIsIm5hbWUiOiJKYWNlIEFybXN0cm9uZyIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIn0.rg5qJlaHjQ7Rei2H4xSf4v4-tEi8FtBWiMTbJe1H0-c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8000/api/refresh",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6239906c-1f7f-4417-9bee-4a0892661282",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "ba2a9e02-3ec1-41cf-8226-9c536ac188af",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "City",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoIiwiaWF0IjoxNTU1NDU1NDc0LCJleHAiOjE1NTU0NTkwNzQsIm5iZiI6MTU1NTQ1NTQ3NCwianRpIjoiYTRxTUxhT3NTNHZRbk5ZUCIsInN1YiI6MSwicHJ2IjoiOTY5ZDcyZGU2YjQxNDNlZjE0NjYxODkxMTE2NTg2ZGI2NjUwOWQ2NSIsIm5hbWUiOiJKYWNlIEFybXN0cm9uZyIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIn0.rg5qJlaHjQ7Rei2H4xSf4v4-tEi8FtBWiMTbJe1H0-c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8000/api/city",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"city"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8000/api/city/246672c2-d3b6-3c7a-9aa9-822bd8826e27",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"city",
+								"246672c2-d3b6-3c7a-9aa9-822bd8826e27"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "State",
+			"item": [
+				{
+					"name": "Index",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoIiwiaWF0IjoxNTU1Mzc5MDkyLCJleHAiOjE1NTUzODI2OTIsIm5iZiI6MTU1NTM3OTA5MiwianRpIjoialRRS216aWR6M2RSalZvSyIsInN1YiI6MSwicHJ2IjoiOTY5ZDcyZGU2YjQxNDNlZjE0NjYxODkxMTE2NTg2ZGI2NjUwOWQ2NSIsIm5hbWUiOiJKYWNlIEFybXN0cm9uZyIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIn0.EFq9fYjUSarSyS1xZs2U6MevLk8oljsDQHkHhAMNM2c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"TESTE\",\n\t\"cpf\": \"12345678901\",\n\t\"id_curso\": \"08803c0b-1e9d-3edb-8dd4-1aff1b744532\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8000/api/state",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"state"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoIiwiaWF0IjoxNTU1Mzc5MDkyLCJleHAiOjE1NTUzODI2OTIsIm5iZiI6MTU1NTM3OTA5MiwianRpIjoialRRS216aWR6M2RSalZvSyIsInN1YiI6MSwicHJ2IjoiOTY5ZDcyZGU2YjQxNDNlZjE0NjYxODkxMTE2NTg2ZGI2NjUwOWQ2NSIsIm5hbWUiOiJKYWNlIEFybXN0cm9uZyIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIn0.EFq9fYjUSarSyS1xZs2U6MevLk8oljsDQHkHhAMNM2c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"TESTE\",\n\t\"cpf\": \"12345678901\",\n\t\"id_curso\": \"08803c0b-1e9d-3edb-8dd4-1aff1b744532\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8000/api/state/9e1ff58d-83f7-3715-8ff9-fc98b98ca13c",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"state",
+								"9e1ff58d-83f7-3715-8ff9-fc98b98ca13c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Index Cities",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoIiwiaWF0IjoxNTU1Mzc5MDkyLCJleHAiOjE1NTUzODI2OTIsIm5iZiI6MTU1NTM3OTA5MiwianRpIjoialRRS216aWR6M2RSalZvSyIsInN1YiI6MSwicHJ2IjoiOTY5ZDcyZGU2YjQxNDNlZjE0NjYxODkxMTE2NTg2ZGI2NjUwOWQ2NSIsIm5hbWUiOiJKYWNlIEFybXN0cm9uZyIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIn0.EFq9fYjUSarSyS1xZs2U6MevLk8oljsDQHkHhAMNM2c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"TESTE\",\n\t\"cpf\": \"12345678901\",\n\t\"id_curso\": \"08803c0b-1e9d-3edb-8dd4-1aff1b744532\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8000/api/state/9e1ff58d-83f7-3715-8ff9-fc98b98ca13c/cities",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"state",
+								"9e1ff58d-83f7-3715-8ff9-fc98b98ca13c",
+								"cities"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Show",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoIiwiaWF0IjoxNTU1NDU1NDc0LCJleHAiOjE1NTU0NTkwNzQsIm5iZiI6MTU1NTQ1NTQ3NCwianRpIjoiYTRxTUxhT3NTNHZRbk5ZUCIsInN1YiI6MSwicHJ2IjoiOTY5ZDcyZGU2YjQxNDNlZjE0NjYxODkxMTE2NTg2ZGI2NjUwOWQ2NSIsIm5hbWUiOiJKYWNlIEFybXN0cm9uZyIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIn0.rg5qJlaHjQ7Rei2H4xSf4v4-tEi8FtBWiMTbJe1H0-c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8000/api/user",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Curso",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoIiwiaWF0IjoxNTU2MDYyODQzLCJleHAiOjE1NTYwNjY0NDMsIm5iZiI6MTU1NjA2Mjg0MywianRpIjoiQzNIRm9IMEt4elF1R2ZxeCIsInN1YiI6MSwicHJ2IjoiOTY5ZDcyZGU2YjQxNDNlZjE0NjYxODkxMTE2NTg2ZGI2NjUwOWQ2NSIsIm5hbWUiOiJEci4gVmlvbGV0dGUgVGhvbXBzb24iLCJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSJ9.-j12KdhAJ-jKbyXRy6-AvQQLnLAqQ8pskgdjCGC1KH8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8000/api/curso",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"curso"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoIiwiaWF0IjoxNTU2MDYyODQzLCJleHAiOjE1NTYwNjY0NDMsIm5iZiI6MTU1NjA2Mjg0MywianRpIjoiQzNIRm9IMEt4elF1R2ZxeCIsInN1YiI6MSwicHJ2IjoiOTY5ZDcyZGU2YjQxNDNlZjE0NjYxODkxMTE2NTg2ZGI2NjUwOWQ2NSIsIm5hbWUiOiJEci4gVmlvbGV0dGUgVGhvbXBzb24iLCJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSJ9.-j12KdhAJ-jKbyXRy6-AvQQLnLAqQ8pskgdjCGC1KH8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8000/api/curso/6f8e1101-300c-39e0-bd96-e3d4c9b5d3d0",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"curso",
+								"6f8e1101-300c-39e0-bd96-e3d4c9b5d3d0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoIiwiaWF0IjoxNTU2MDYyODQzLCJleHAiOjE1NTYwNjY0NDMsIm5iZiI6MTU1NjA2Mjg0MywianRpIjoiQzNIRm9IMEt4elF1R2ZxeCIsInN1YiI6MSwicHJ2IjoiOTY5ZDcyZGU2YjQxNDNlZjE0NjYxODkxMTE2NTg2ZGI2NjUwOWQ2NSIsIm5hbWUiOiJEci4gVmlvbGV0dGUgVGhvbXBzb24iLCJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSJ9.-j12KdhAJ-jKbyXRy6-AvQQLnLAqQ8pskgdjCGC1KH8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8000/api/curso/6f8e1101-300c-39e0-bd96-e3d4c9b5d3d0",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"curso",
+								"6f8e1101-300c-39e0-bd96-e3d4c9b5d3d0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoIiwiaWF0IjoxNTU2MDYyODQzLCJleHAiOjE1NTYwNjY0NDMsIm5iZiI6MTU1NjA2Mjg0MywianRpIjoiQzNIRm9IMEt4elF1R2ZxeCIsInN1YiI6MSwicHJ2IjoiOTY5ZDcyZGU2YjQxNDNlZjE0NjYxODkxMTE2NTg2ZGI2NjUwOWQ2NSIsIm5hbWUiOiJEci4gVmlvbGV0dGUgVGhvbXBzb24iLCJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSJ9.-j12KdhAJ-jKbyXRy6-AvQQLnLAqQ8pskgdjCGC1KH8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"teste\",\n\t\"media_aprovacao\": 6,\n\t\"numero_alunos\": 2\n}"
+						},
+						"url": {
+							"raw": "localhost:8000/api/curso",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"curso"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoIiwiaWF0IjoxNTU2MDYyODQzLCJleHAiOjE1NTYwNjY0NDMsIm5iZiI6MTU1NjA2Mjg0MywianRpIjoiQzNIRm9IMEt4elF1R2ZxeCIsInN1YiI6MSwicHJ2IjoiOTY5ZDcyZGU2YjQxNDNlZjE0NjYxODkxMTE2NTg2ZGI2NjUwOWQ2NSIsIm5hbWUiOiJEci4gVmlvbGV0dGUgVGhvbXBzb24iLCJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSJ9.-j12KdhAJ-jKbyXRy6-AvQQLnLAqQ8pskgdjCGC1KH8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"teste2\",\n\t\"media_aprovacao\": 10,\n\t\"numero_alunos\": 20\n}"
+						},
+						"url": {
+							"raw": "localhost:8000/api/curso/ca58c52d-9f1c-330d-81e2-3eddfb3f93f9",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"curso",
+								"ca58c52d-9f1c-330d-81e2-3eddfb3f93f9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Aluno",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoIiwiaWF0IjoxNTU2MTQ2MDQ0LCJleHAiOjE1NTYxNDk2NDQsIm5iZiI6MTU1NjE0NjA0NCwianRpIjoiMnE3ZHZ6Smk4aW91TWtoSCIsInN1YiI6MSwicHJ2IjoiOTY5ZDcyZGU2YjQxNDNlZjE0NjYxODkxMTE2NTg2ZGI2NjUwOWQ2NSIsIm5hbWUiOiJQcm9mLiBQZXJjaXZhbCBIYXJiZXIiLCJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSJ9.UR_z0tYQacpaGzAvBZnCnn4R09rrWe7s-GZLAnZ3nqE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "page",
+								"value": "2",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8000/api/aluno?search=Asha",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"aluno"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "Asha"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoIiwiaWF0IjoxNTU2MTQ2MDQ0LCJleHAiOjE1NTYxNDk2NDQsIm5iZiI6MTU1NjE0NjA0NCwianRpIjoiMnE3ZHZ6Smk4aW91TWtoSCIsInN1YiI6MSwicHJ2IjoiOTY5ZDcyZGU2YjQxNDNlZjE0NjYxODkxMTE2NTg2ZGI2NjUwOWQ2NSIsIm5hbWUiOiJQcm9mLiBQZXJjaXZhbCBIYXJiZXIiLCJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSJ9.UR_z0tYQacpaGzAvBZnCnn4R09rrWe7s-GZLAnZ3nqE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "page",
+								"value": "2",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"TESTE\",\n\t\"cpf\": \"11122233344\",\n\t\"curso_id\": \"f245c69e-d4a1-34b9-b56d-f434394804c9\",\n\t\"city_id\": \"4846e977-e794-37fa-93ea-9f149efed250\",\n\t\"state_id\": \"6504f4d1-66fd-3626-9de2-ec8285cfe9bc\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8000/api/aluno?search=Asha",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"aluno"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "Asha"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoIiwiaWF0IjoxNTU2MTQ2MDQ0LCJleHAiOjE1NTYxNDk2NDQsIm5iZiI6MTU1NjE0NjA0NCwianRpIjoiMnE3ZHZ6Smk4aW91TWtoSCIsInN1YiI6MSwicHJ2IjoiOTY5ZDcyZGU2YjQxNDNlZjE0NjYxODkxMTE2NTg2ZGI2NjUwOWQ2NSIsIm5hbWUiOiJQcm9mLiBQZXJjaXZhbCBIYXJiZXIiLCJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSJ9.UR_z0tYQacpaGzAvBZnCnn4R09rrWe7s-GZLAnZ3nqE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "page",
+								"value": "2",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"TESTE2\",\n\t\"cpf\": \"11122233341\",\n\t\"curso_id\": \"f245c69e-d4a1-34b9-b56d-f434394804c9\",\n\t\"city_id\": \"4846e977-e794-37fa-93ea-9f149efed250\",\n\t\"state_id\": \"6504f4d1-66fd-3626-9de2-ec8285cfe9bc\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8000/api/aluno/baa5c1d0-0bbf-3332-82be-3e6e7691f7d1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"aluno",
+								"baa5c1d0-0bbf-3332-82be-3e6e7691f7d1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoIiwiaWF0IjoxNTU2MTQ2MDQ0LCJleHAiOjE1NTYxNDk2NDQsIm5iZiI6MTU1NjE0NjA0NCwianRpIjoiMnE3ZHZ6Smk4aW91TWtoSCIsInN1YiI6MSwicHJ2IjoiOTY5ZDcyZGU2YjQxNDNlZjE0NjYxODkxMTE2NTg2ZGI2NjUwOWQ2NSIsIm5hbWUiOiJQcm9mLiBQZXJjaXZhbCBIYXJiZXIiLCJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSJ9.UR_z0tYQacpaGzAvBZnCnn4R09rrWe7s-GZLAnZ3nqE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "page",
+								"value": "2",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8000/api/aluno/baa5c1d0-0bbf-3332-82be-3e6e7691f7d1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"aluno",
+								"baa5c1d0-0bbf-3332-82be-3e6e7691f7d1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoIiwiaWF0IjoxNTU2MTQ2MDQ0LCJleHAiOjE1NTYxNDk2NDQsIm5iZiI6MTU1NjE0NjA0NCwianRpIjoiMnE3ZHZ6Smk4aW91TWtoSCIsInN1YiI6MSwicHJ2IjoiOTY5ZDcyZGU2YjQxNDNlZjE0NjYxODkxMTE2NTg2ZGI2NjUwOWQ2NSIsIm5hbWUiOiJQcm9mLiBQZXJjaXZhbCBIYXJiZXIiLCJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSJ9.UR_z0tYQacpaGzAvBZnCnn4R09rrWe7s-GZLAnZ3nqE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "page",
+								"value": "2",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8000/api/aluno/baa5c1d0-0bbf-3332-82be-3e6e7691f7d1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"aluno",
+								"baa5c1d0-0bbf-3332-82be-3e6e7691f7d1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
