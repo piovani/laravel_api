@@ -4,20 +4,17 @@ namespace App\Domain\School\Aluno;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Carbon\Carbon;
 
 class AlunoController extends Controller
 {
-    protected $service;
-
-    public function __construct()
-    {
-        $this->service = new AlunoService();
-    }
-
     public function index(Request $request)
     {
-        return response($this->service->getList($request));
+        return AlunoResource::collection(
+            Aluno::where(function ($query) use ($request) {
+                $query->where('name', 'like', "%{$request->search}%")
+                ->orWhere('cpf',  'like', "%{$request->search}%");
+            })->paginate()
+        );
     }
 
     public function store(Request $request)

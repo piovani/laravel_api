@@ -2,6 +2,7 @@
 
 namespace App\Domain\School\Aluno;
 
+use App\Domain\Localization\City\City;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use OwenIt\Auditing\Contracts\Auditable;
@@ -33,4 +34,14 @@ class Aluno extends Model implements Auditable
         'name',
         'curso_id',
     ];
+
+    public function curso()
+    {
+        return $this->belongsTo('App\Domain\School\Curso\Curso');
+    }
+
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
 }
