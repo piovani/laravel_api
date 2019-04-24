@@ -12,16 +12,22 @@ class AlunoController extends Controller
         return AlunoResource::collection(
             Aluno::where(function ($query) use ($request) {
                 $query->where('name', 'like', "%{$request->search}%")
-                ->orWhere('cpf',  'like', "%{$request->search}%");
+                    ->orWhere('cpf',  'like', "%{$request->search}%");
             })->paginate()
         );
     }
 
-    public function store(Request $request)
+    public function store(AlunoRequest $alunoRequest)
     {
-        $this->validation($request);
+        $aluno = factory(Aluno::class)->create([
+            'name'     => $alunoRequest->name,
+            'cpf'      => $alunoRequest->cpf,
+            'curso_id' => $alunoRequest->curso_id,
+            'city_id'  => $alunoRequest->city_id,
+            'state_id' => $alunoRequest->state_id,
+        ]);
 
-        return response($this->service->store($request), 201);
+        return response(new AlunoResource($aluno), 201);
     }
 
     public function show(Aluno $aluno)
@@ -41,16 +47,5 @@ class AlunoController extends Controller
         $aluno->delete();
 
         return response('', 204);
-    }
-
-    private function validation(Request $request)
-    {
-        $request->validate([
-            'name'     => 'required|max:255',
-            'cpf'      => 'required|min:11|max:11',
-            'curso_id' => 'required|exists:cursos,id',
-            'city_id'  => 'required|exists:cities,id',
-            'state_id' => 'required|exists:states,id',
-        ]);
     }
 }
