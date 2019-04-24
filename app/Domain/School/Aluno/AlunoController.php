@@ -25,6 +25,7 @@ class AlunoController extends Controller
             'curso_id' => $alunoRequest->curso_id,
             'city_id'  => $alunoRequest->city_id,
             'state_id' => $alunoRequest->state_id,
+            'faltas'   => $alunoRequest ?? 0,
         ]);
 
         return response(new AlunoResource($aluno), 201);
@@ -32,14 +33,21 @@ class AlunoController extends Controller
 
     public function show(Aluno $aluno)
     {
-        return response($aluno, 200);
+        return response(new AlunoResource($aluno), 200);
     }
 
-    public function update(Request $request, Aluno $aluno)
+    public function update(AlunoRequest $alunoRequest, Aluno $aluno)
     {
-        $this->validation($request);
+        $aluno->update([
+            'name'     => $alunoRequest->name,
+            'cpf'      => $alunoRequest->cpf,
+            'curso_id' => $alunoRequest->curso_id,
+            'city_id'  => $alunoRequest->city_id,
+            'state_id' => $alunoRequest->state_id,
+            'faltas'   => $alunoRequest->faltas ?? 0,
+        ]);
 
-        return response($this->service->update($aluno, $request), 200);
+        return response(new AlunoResource($aluno), 200);
     }
 
     public function destroy(Aluno $aluno)
