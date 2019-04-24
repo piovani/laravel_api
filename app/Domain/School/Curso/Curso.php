@@ -9,6 +9,11 @@ class Curso extends Model
 {
     public $incrementing = false;
 
+    protected $fillable = [
+        'name',
+        'media_aprovacao',
+        'numero_alunos',
+    ];
 
     public function alunos()
     {

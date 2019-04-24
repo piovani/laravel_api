@@ -5,6 +5,7 @@ namespace App\Domain\School\Curso;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Domain\School\Curso\CursoResource;
+use App\Domain\School\Curso\CursoRequest;
 
 class CursoController extends Controller
 {
@@ -16,19 +17,15 @@ class CursoController extends Controller
         );
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(CursoRequest $cursoRequest)
     {
-        $data = $this
-            ->service
-            ->store($request);
+        $curso = factory(Curso::class)->create([
+            'name'            => $cursoRequest->name,
+            'media_aprovacao' => $cursoRequest->media_aprovacao ?? 0,
+            'numero_alunos'   => $cursoRequest->numero_alunos ?? 0,
+        ]);
 
-        return response($data, 201);
+        return response(new CursoResource($curso), 201);
     }
 
     public function show(Curso $curso)
@@ -36,20 +33,15 @@ class CursoController extends Controller
         return new CursoResource($curso);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Curso  $curso
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Curso $curso)
+    public function update(CursoRequest $cursoRequest, Curso $curso)
     {
-        $data = $this
-            ->service
-            ->update($curso, $request);
+        $curso->update([
+            'name'            => $cursoRequest->name,
+            'media_aprovacao' => $cursoRequest->media_aprovacao,
+            'numero_alunos'   => $cursoRequest->numero_alunos,
+        ]);
 
-        return response($data);
+        return response(new CursoResource($curso), 200);
     }
 
     public function destroy(Curso $curso)
