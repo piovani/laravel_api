@@ -31,4 +31,11 @@ class AlunoRequest extends FormRequest
             'state_id' => 'required|exists:states,id',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'required' => 'Esse campo :attribute é necessario',
+        ];
+    }
 }
