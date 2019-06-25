@@ -8,10 +8,36 @@ class IndexTest extends TestCase
 {
     private $url = 'api/state';
 
-    public function test_estrutura_do_response_state()
+    /** @test  */
+    public function state_structure()
     {
         $reponse = $this->get($this->url);
 
-        $reponse->assertStatus(200);
+        $reponse
+            ->assertStatus(200)
+            ->assertJsonStructure([
+                'data' => [
+                    '*' => [
+                        'id',
+                        'name',
+                        'initials',
+                    ]
+                ],
+                'links' => [
+                    'first',
+                    'last',
+                    'prev',
+                    'next',
+                ],
+                'meta' => [
+                    'current_page',
+                    'from',
+                    'last_page',
+                    'path',
+                    'per_page',
+                    'to',
+                    'total',
+                ]
+            ]);
     }
 }
