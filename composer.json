@@ -21,7 +21,7 @@
         "filp/whoops": "^2.0",
         "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^2.0",
-        "phpunit/phpunit": "~6.0"
+        "phpunit/phpunit": "^8.2"
     },
     "autoload": {
         "classmap": [
@@ -34,7 +34,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/Domain"
+            "Tests\\": "tests"
         }
     },
     "extra": {
