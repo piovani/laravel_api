@@ -2,18 +2,24 @@
 
 namespace Tests\Localization\StateController;
 
+use Illuminate\Support\Facades\Artisan;
 use Tests\TestCase;
 
 class IndexTest extends TestCase
 {
     private $url = 'api/state';
 
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        Artisan::call('db:seed --class=StateSeeder');
+    }
+
     /** @test  */
     public function state_structure()
     {
-        $reponse = $this->get($this->url);
-
-        $reponse
+        $this->get($this->url)
             ->assertStatus(200)
             ->assertJsonStructure([
                 'data' => [
@@ -39,5 +45,14 @@ class IndexTest extends TestCase
                     'total',
                 ]
             ]);
+    }
+
+    /** @test */
+    public function seach_in_request_state_with_one_result()
+    {
+        $response     = $this->get($this->url . '?' .'seach=Acre')->assertSuccessful();
+        $responseJson = $response->decodeResponseJson();
+
+        self::assertCount(1, $responseJson['data']);
     }
 }
