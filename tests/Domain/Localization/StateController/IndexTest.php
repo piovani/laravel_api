@@ -50,9 +50,18 @@ class IndexTest extends TestCase
     /** @test */
     public function seach_in_request_state_with_one_result()
     {
-        $response     = $this->get($this->url . '?' .'seach=Acre')->assertSuccessful();
+        $response     = $this->get($this->url . '?seach=Acre')->assertSuccessful();
         $responseJson = $response->decodeResponseJson();
 
         self::assertCount(1, $responseJson['data']);
+    }
+
+    /** @test */
+    public function paginate_on_page_2()
+    {
+        $response     = $this->get($this->url . '?page=2')->assertSuccessful();
+        $responseJson = $response->decodeResponseJson();
+
+        self::assertEquals(2, $responseJson['meta']['current_page']);
     }
 }
