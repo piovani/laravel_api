@@ -9,13 +9,6 @@ class IndexTest extends TestCase
 {
     private $url = 'api/state';
 
-    public function setUp(): void
-    {
-        parent::setUp();
-
-        Artisan::call('db:seed --class=StateSeeder');
-    }
-
     /** @test  */
     public function state_structure()
     {
