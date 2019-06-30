@@ -13,8 +13,6 @@ class IndexTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-
-        factory(City::class, 2)->create();
     }
 
     /** @test */
@@ -59,6 +57,18 @@ class IndexTest extends TestCase
             ->assertStatus(200)
             ->assertJsonCount(15, 'data')
             ->assertJsonCount(4, 'links')
-            ->assertJsonCount(7, 'meta');
+            ->assertJsonCount(7, 'meta')
+            ->assertJson(['meta' => ['total' => 5560]]);
+    }
+
+    /** @test */
+    public function should_bring_the_correct_page_of_cities()
+    {
+        $this->get($this->url. '?page=2')
+            ->assertStatus(200)
+            ->assertJson(['meta' => [
+                'current_page' => 2,
+                'total'        => 5560,
+            ]]);
     }
 }
