@@ -6,7 +6,7 @@ use App\Domain\Localization\State\State;
 use Illuminate\Support\Facades\Artisan;
 use Tests\TestCase;
 
-class ShowTest extends TestCase
+class StateShowTest extends TestCase
 {
     private $url = 'api/state';
 

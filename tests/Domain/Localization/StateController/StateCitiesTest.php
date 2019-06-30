@@ -5,17 +5,10 @@ namespace Tests\Domain\Localization\StateController;
 use Illuminate\Support\Facades\Artisan;
 use Tests\TestCase;
 
-class CitiesTest extends TestCase
+class StateCitiesTest extends TestCase
 {
     /** @var string  */
     private $url = 'api/state';
-
-    public function setUp(): void
-    {
-        parent::setUp();
-
-        Artisan::call('db:seed --class=StateSeeder');
-    }
 
     private function getUrl($idState): string
     {

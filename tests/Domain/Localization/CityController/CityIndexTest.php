@@ -2,18 +2,12 @@
 
 namespace Tests\Domain\Localization\CityController;
 
-use App\Domain\Localization\City\City;
 use Tests\TestCase;
 
-class IndexTest extends TestCase
+class CityIndexTest extends TestCase
 {
     /** @var string  */
     private $url = 'api/city';
-
-    public function setUp(): void
-    {
-        parent::setUp();
-    }
 
     /** @test */
     public function should_bring_correct_structure_of_cities()

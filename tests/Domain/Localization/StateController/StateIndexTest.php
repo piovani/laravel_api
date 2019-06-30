@@ -5,7 +5,7 @@ namespace Tests\Localization\StateController;
 use Illuminate\Support\Facades\Artisan;
 use Tests\TestCase;
 
-class IndexTest extends TestCase
+class StateIndexTest extends TestCase
 {
     private $url = 'api/state';
 
