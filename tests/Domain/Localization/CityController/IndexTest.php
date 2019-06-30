@@ -71,4 +71,12 @@ class IndexTest extends TestCase
                 'total'        => 5560,
             ]]);
     }
+
+    /** @test */
+    public function must_bring_city_that_fit_the_query()
+    {
+        $this->get($this->url . '?search=Alagoas')
+            ->assertStatus(200)
+            ->assertJsonCount(2, 'data');
+    }
 }
