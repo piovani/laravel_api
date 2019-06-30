@@ -30,9 +30,24 @@ class IndexTest extends TestCase
                         'state' => [
                             'id',
                             'name',
-                            'initials'
+                            'initials',
                         ]
                     ]
+                ],
+                'links' => [
+                    'first',
+                    'last',
+                    'prev',
+                    'next',
+                ],
+                'meta' => [
+                    'current_page',
+                    'from',
+                    'last_page',
+                    'path',
+                    'per_page',
+                    'to',
+                    'total'
                 ]
             ]);
     }
@@ -40,6 +55,10 @@ class IndexTest extends TestCase
     /** @test */
     public function should_bring_the_right_amount_of_cities()
     {
-        //
+        $this->get($this->url)
+            ->assertStatus(200)
+            ->assertJsonCount(15, 'data')
+            ->assertJsonCount(4, 'links')
+            ->assertJsonCount(7, 'meta');
     }
 }
