@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use http\Env\Response;
+use App\Domain\User\User;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use JWTAuth;
 
 class Controller extends BaseController
 {
@@ -19,6 +20,11 @@ class Controller extends BaseController
         200 => self::messageSuccess,
         500 => self::messageError,
     ];
+
+    public function currentUser(): User
+    {
+        return JWTAuth::parseToken()->authenticate();
+    }
 
     protected function messageResponse($message = null, $status = 200)
     {

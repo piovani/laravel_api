@@ -1,6 +1,5 @@
 <?php
 
-use App\Domain\Localization\City\City;
 use App\Domain\Localization\State\State;
 use Faker\Factory as Faker;
 use Illuminate\Support\Facades\Schema;
@@ -53,7 +52,8 @@ class CreateCitiesTable extends Migration
                 "Sena Madureira",
                 "Senador Guiomard",
                 "Tarauacá",
-                "Xapuri"],
+                "Xapuri",
+            ],
             "AL" => [
                 "Água Branca",
                 "Anadia",
@@ -156,7 +156,7 @@ class CreateCitiesTable extends Migration
                 "Teotônio Vilela",
                 "Traipu",
                 "União dos Palmares",
-                "Viçosa"
+                "Viçosa",
             ],
             "AM" => [
                 "Alvarães",
@@ -220,7 +220,7 @@ class CreateCitiesTable extends Migration
                 "Tonantins",
                 "Uarini",
                 "Urucará",
-                "Urucurituba"
+                "Urucurituba",
             ],
             "AP" => [
                 "Amapá",
@@ -238,7 +238,7 @@ class CreateCitiesTable extends Migration
                 "Santana",
                 "Serra do Navio",
                 "Tartarugalzinho",
-                "Vitória do Jari"
+                "Vitória do Jari",
             ],
             "BA" => [
                 "Abaíra",
@@ -657,7 +657,7 @@ class CreateCitiesTable extends Migration
                 "Wagner",
                 "Wanderley",
                 "Wenceslau Guimarães",
-                "Xique-Xique"
+                "Xique-Xique",
             ],
             "CE" => [
                 "Abaiara",
@@ -843,10 +843,10 @@ class CreateCitiesTable extends Migration
                 "Uruoca",
                 "Varjota",
                 "Várzea Alegre",
-                "Viçosa do Ceará"
+                "Viçosa do Ceará",
             ],
             "DF" => [
-                "Brasília"
+                "Brasília",
             ],
             "ES" => [
                 "Afonso Cláudio",
@@ -926,7 +926,7 @@ class CreateCitiesTable extends Migration
                 "Vila Pavão",
                 "Vila Valério",
                 "Vila Velha",
-                "Vitória"
+                "Vitória",
             ],
             "GO" => [
                 "Abadia de Goiás",
@@ -1174,7 +1174,7 @@ class CreateCitiesTable extends Migration
                 "Vianópolis",
                 "Vicentinópolis",
                 "Vila Boa",
-                "Vila Propício"
+                "Vila Propício",
             ],
             "MA" => [
                 "Açailândia",
@@ -1393,7 +1393,7 @@ class CreateCitiesTable extends Migration
                 "Vila Nova dos Martírios",
                 "Vitória do Mearim",
                 "Vitorino Freire",
-                "Zé Doca"
+                "Zé Doca",
             ],
             "MG" => [
                 "Abadia dos Dourados",
@@ -2248,7 +2248,7 @@ class CreateCitiesTable extends Migration
                 "Virgolândia",
                 "Visconde do Rio Branco",
                 "Volta Grande",
-                "Wenceslau Braz"
+                "Wenceslau Braz",
             ],
             "MS" => [
                 "Água Clara",
@@ -2327,7 +2327,7 @@ class CreateCitiesTable extends Migration
                 "Taquarussu",
                 "Terenos",
                 "Três Lagoas",
-                "Vicentina"
+                "Vicentina",
             ],
             "MT" => [
                 "Acorizal",
@@ -2468,7 +2468,7 @@ class CreateCitiesTable extends Migration
                 "Várzea Grande",
                 "Vera",
                 "Vila Bela da Santíssima Trindade",
-                "Vila Rica"
+                "Vila Rica",
             ],
             "PA" => [
                 "Abaetetuba",
@@ -2613,7 +2613,7 @@ class CreateCitiesTable extends Migration
                 "Vigia",
                 "Viseu",
                 "Vitória do Xingu",
-                "Xinguara"
+                "Xinguara",
             ],
             "PB" => [
                 "Água Branca",
@@ -2838,7 +2838,7 @@ class CreateCitiesTable extends Migration
                 "Várzea",
                 "Vieirópolis",
                 "Vista Serrana",
-                "Zabelê"
+                "Zabelê",
             ],
             "PE" => [
                 "Abreu e Lima",
@@ -3025,7 +3025,7 @@ class CreateCitiesTable extends Migration
                 "Vertentes",
                 "Vicência",
                 "Vitória de Santo Antão",
-                "Xexéu"
+                "Xexéu",
             ],
             "PI" => [
                 "Acauã",
@@ -3249,7 +3249,7 @@ class CreateCitiesTable extends Migration
                 "Várzea Grande",
                 "Vera Mendes",
                 "Vila Nova do Piauí",
-                "Wall Ferraz"
+                "Wall Ferraz",
             ],
             "PR" => [
                 "Abatiá",
@@ -3650,7 +3650,7 @@ class CreateCitiesTable extends Migration
                 "Virmond",
                 "Vitorino",
                 "Wenceslau Braz",
-                "Xambrê"
+                "Xambrê",
             ],
             "RJ" => [
                 "Angra dos Reis",
@@ -3744,7 +3744,7 @@ class CreateCitiesTable extends Migration
                 "Valença",
                 "Varre-Sai",
                 "Vassouras",
-                "Volta Redonda"
+                "Volta Redonda",
             ],
             "RN" => [
                 "Acari",
@@ -3913,7 +3913,7 @@ class CreateCitiesTable extends Migration
                 "Venha-Ver",
                 "Vera Cruz",
                 "Viçosa",
-                "Vila Flor"
+                "Vila Flor",
             ],
             "RO" => [
                 "Alta Floresta d Oeste",
@@ -3967,7 +3967,7 @@ class CreateCitiesTable extends Migration
                 "Urupá",
                 "Vale do Anari",
                 "Vale do Paraíso",
-                "Vilhena"
+                "Vilhena",
             ],
             "RR" => [
                 "Alto Alegre",
@@ -3984,7 +3984,7 @@ class CreateCitiesTable extends Migration
                 "Rorainópolis",
                 "São João da Baliza",
                 "São Luiz",
-                "Uiramutã"
+                "Uiramutã",
             ],
             "RS" => [
                 "Aceguá",
@@ -4482,7 +4482,7 @@ class CreateCitiesTable extends Migration
                 "Vista Gaúcha",
                 "Vitória das Missões",
                 "Westfália",
-                "Xangri-lá"
+                "Xangri-lá",
             ],
             "SC" => [
                 "Abdon Batista",
@@ -4777,7 +4777,7 @@ class CreateCitiesTable extends Migration
                 "Xanxerê",
                 "Xavantina",
                 "Xaxim",
-                "Zortéa"
+                "Zortéa",
             ],
             "SE" => [
                 "Amparo de São Francisco",
@@ -4854,7 +4854,7 @@ class CreateCitiesTable extends Migration
                 "Telha",
                 "Tobias Barreto",
                 "Tomar do Geru",
-                "Umbaúba"
+                "Umbaúba",
             ],
             "SP" => [
                 "Adamantina",
@@ -5501,7 +5501,7 @@ class CreateCitiesTable extends Migration
                 "Vitória Brasil",
                 "Votorantim",
                 "Votuporanga",
-                "Zacarias"
+                "Zacarias",
             ],
             "TO" => [
                 "Abreulândia",
@@ -5642,17 +5642,18 @@ class CreateCitiesTable extends Migration
                 "Tupirama",
                 "Tupiratins",
                 "Wanderlândia",
-                "Xambioá"
-            ]
+                "Xambioá",
+            ],
         ];
-        $faker           = Faker::create();
-        $states          = State::all();
+        $faker = Faker::create();
+        $states = State::all();
 
         foreach ($statesAndCities as $sigla => $stateAndCity) {
             $idState = $states->where('initials', strtolower($sigla))->first()->id;
 
-            collect($stateAndCity)->each(function($city) use ($faker, $idState) {
-                $query = sprintf("insert into cities ('id', 'name', 'state_id') values ('%s', '%s', '%s')", $faker->uuid, str_replace("''", " ", $city), $idState);
+            collect($stateAndCity)->each(function ($city) use ($faker, $idState) {
+                $query = sprintf("insert into cities ('id', 'name', 'state_id') values ('%s', '%s', '%s')",
+                    $faker->uuid, str_replace("''", " ", $city), $idState);
                 DB::insert($query);
             });
         }
