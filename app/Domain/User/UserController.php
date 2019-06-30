@@ -9,6 +9,6 @@ class UserController extends Controller
 {
     public function show()
     {
-        return $this->currentUser();
+        return new UserResource($this->currentUser());
     }
 }
