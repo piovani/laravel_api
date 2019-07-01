@@ -7,17 +7,19 @@ use App\Http\Controllers\Controller;
 use App\Domain\Localization\State\StateResource;
 use App\Domain\Localization\City\CityResource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class StateController extends Controller
 {
     public function index(Request $request)
     {
-        return StateResource::collection(
-            State::where(function ($query) use ($request) {
-                $query->where('name',     'like', "%{$request->seach}%")
-                    ->orWhere('initials', 'like', "%{$request->seach}%");
-            })->paginate()
+        $states = Cache::remember('states', 1, function () use ($request) {
+            return State::where('name',     'like', "%{$request->seach}%")
+                ->orWhere('initials', 'like', "%{$request->seach}%");
+            }
         );
+
+        return StateResource::collection($states);
     }
 
     public function show(State $state)
