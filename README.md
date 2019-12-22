@@ -1,15 +1,15 @@
 # laravel_api
-Esse repositorio e um laboratorio de testes.
+This repository is a test lab.
 
-<b>Obs:</b> não é necessário ter o PHP ou Composer instalados, apenas o Docker e Docker-Compose.
+<b>P.S.:</b> No need to have PHP or Composer installed, just Docker and Docker-Compose. Docker: 19.03.2, Docker-Compose: 1.21.0 or higher.
 
-## Comandos com Docker (Recomendado)
+## Commands with Docker (Recommended)
 ```
 docker-compose up -d
 ```
 
 ``` 
-docker-compose run app bash
+docker-compose run laravel-api bash
 ```
 
 ``` 
@@ -21,14 +21,10 @@ cp .env.example .env
 ```
 
 ```
-php artisan migrate
+php artisan migrate --seed
 ```
 
-```
-php artisan db:seed
-```
-## Comandos sem Docker
-<b>Obs:</b> é necessário ter o PHP, Composer e o Drive sqlite do PHP inslados e liberados em sua máquina.
+## Commands without Docker
 ``` 
 composer install 
 ```
@@ -44,6 +40,14 @@ php artisan migrate
 ```
 php artisan db:seed
 ```
+
+## Technologies Used
+* Cors
+* Faker BR
+* Auditing
+* Activitylog
+* JWT Auth
+* GraphQL
 
 ## Lista do que pode ser add ao projeto
 * Intervention Image - https://github.com/intervention/image (tratamento de imagens)
