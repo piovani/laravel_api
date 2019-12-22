@@ -105,7 +105,7 @@ return [
                 'state_paginate_query' => \App\GraphQL\Queries\StatePaginateQuery::class,
             ],
             'mutation' => [
-                // 'example_mutation'  => ExampleMutation::class,
+                'state_mutation' => \App\GraphQL\Mutations\StateMutation::class,
             ],
             'middleware' => [],
             'method' => ['get', 'post'],
