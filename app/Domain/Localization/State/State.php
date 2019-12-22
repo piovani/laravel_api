@@ -10,6 +10,12 @@ class State extends Model
     use SoftDeletes;
 
     public $incrementing = false;
+    protected $keyType = 'string';
+
+    protected $fillable = [
+        'name',
+        'initials',
+    ];
 
     const COLUMNS = [
         'id',
