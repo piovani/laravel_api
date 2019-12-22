@@ -51,7 +51,11 @@ class StateQuery extends Query
 //        return [
 //            'id' => 10
 //        ];
-        
+
+        if (isset($args['id'])) {
+            return State::where('id', $args['id'])->get();
+        }
+
         return State::all();
     }
 }

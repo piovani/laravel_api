@@ -101,7 +101,8 @@ return [
     'schemas' => [
         'default' => [
             'query' => [
-                'state_query' => \App\GraphQL\Queries\StateQuery::class
+                'state_query'          => \App\GraphQL\Queries\StateQuery::class,
+                'state_paginate_query' => \App\GraphQL\Queries\StatePaginateQuery::class,
             ],
             'mutation' => [
                 // 'example_mutation'  => ExampleMutation::class,
