@@ -101,7 +101,7 @@ return [
     'schemas' => [
         'default' => [
             'query' => [
-                // 'example_query' => ExampleQuery::class,
+                'state_query' => \App\GraphQL\Queries\StateQuery::class
             ],
             'mutation' => [
                 // 'example_mutation'  => ExampleMutation::class,
@@ -121,9 +121,7 @@ return [
     // ]
     //
     'types' => [
-        // 'example'           => ExampleType::class,
-        // 'relation_example'  => ExampleRelationType::class,
-        // \Rebing\GraphQL\Support\UploadType::class,
+        'state_type' => \App\GraphQL\Types\StateType::class,
     ],
 
     // The types will be loaded on demand. Default is to load all types on each request
