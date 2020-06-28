@@ -2,12 +2,13 @@
 
 namespace App\Domain\User;
 
+use Auth0\Login\Contract\Auth0UserRepository;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable implements JWTSubject
+class User extends Authenticatable implements Auth0UserRepository
 {
     use Notifiable, SoftDeletes;
 
@@ -50,5 +51,30 @@ class User extends Authenticatable implements JWTSubject
             'name' => $this->name,
             'email' => $this->email,
         ];
+    }
+
+    protected  function upsertUser($profile)
+    {
+        return User::firstOrCreate(['sub' => $profile['sub']], [
+            'email' => $profile['email'] ?? '',
+            'name' => $profile['name'] ?? '',
+        ]);
+    }
+
+    public function getUserByDecodedJWT(array $decodedJwt): \Illuminate\Contracts\Auth\Authenticatable
+    {
+        $user = $this->upsertUser((array) $jwt);
+        return new Auth0JWTUser($user->getAttributes());
+    }
+
+    public function getUserByUserInfo(array $userInfo): \Illuminate\Contracts\Auth\Authenticatable
+    {
+        $user = $this->upsertUser( $userinfo['profile'] );
+        return new Auth0User( $user->getAttributes(), $userinfo['accessToken'] );
+    }
+
+    public function getUserByIdentifier($identifier): ?\Illuminate\Contracts\Auth\Authenticatable
+    {
+        // TODO: Implement getUserByIdentifier() method.
     }
 }

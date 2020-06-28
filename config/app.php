@@ -151,6 +151,7 @@ return [
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
         OwenIt\Auditing\AuditingServiceProvider::class,
         Rebing\GraphQL\GraphQLServiceProvider::class,
+        Auth0\Login\LoginServiceProvider::class
     ],
 
     /*
@@ -203,6 +204,7 @@ return [
         'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'GraphQL' => Rebing\GraphQL\Support\Facades\GraphQL::class,
+        'Auth0' => Auth0\Login\Facade\Auth0::class,
     ],
 
 ];
