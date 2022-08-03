@@ -10,7 +10,7 @@ networks:
 
 services:
   laravel-api:
-    image: ambientum/php:7.3-nginx
+    image: ambientum/php:7.4-nginx
     container_name: laravel-api
     volumes:
       - .:/var/www/app
@@ -21,6 +21,7 @@ services:
 
   laravel-api-database:
     image: mysql:5.7
+    platform: linux/x86_64
     volumes:
       - laravel-api-database:/var/lib/mysql
     ports:
